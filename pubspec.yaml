@@ -1,0 +1,39 @@
+name: flutter_reactions
+description: "A Flutter package that makes it easy to add a single reaction button that handles all events for multiple platforms, or to display reactions via overlay without the button."
+version: 0.0.1
+homepage: https://github.com/lapphong/flutter_reactions
+repository: https://github.com/lapphong/flutter_reactions.git
+issue_tracker: https://github.com/lapphong/flutter_reactions/issues
+
+topics:
+  - reaction
+  - ui
+  - animation
+  - toast
+  - message
+
+screenshots:
+  - description: "The flutter reactions package logo."
+    path: screenshots/logo.gif
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  audioplayers: ^6.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+
+  assets:
+    - assets/images/
+    - assets/gif/
+    - assets/audio/
