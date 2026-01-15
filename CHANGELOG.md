@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Update README.md and screenshots
+
 ## 0.0.2
 
 - Update README.md

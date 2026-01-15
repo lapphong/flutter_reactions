@@ -1,7 +1,7 @@
 <h1>Flutter Reactions</h1>
 
 <p>
-  <strong>A Flutter package that makes it easy to add a single reaction button that handles all events for multiple platforms, or to display reactions via overlay without the button.</strong>
+  <strong>A Flutter package that provides a fully handled reaction system with cross-platform gesture support and configurable reaction overlays.</strong>
 </p>
 
 <p>
@@ -34,33 +34,13 @@
   <tbody>
     <tr>
       <td align="center">
-        <img src="https://github.com/user-attachments/assets/18701a12-1108-431d-961e-57f7d7e640bd"/>
+        <img src="https://raw.githubusercontent.com/lapphong/flutter_reactions/main/screenshots/demo_mobile.gif"/>
       </td>
       <td align="center">
-        <img src="https://github.com/user-attachments/assets/67cbb683-cbf6-4609-8887-45aa78a28514"/>
+        <img src="https://raw.githubusercontent.com/lapphong/flutter_reactions/main/screenshots/demo_mobile_2.gif"/>
       </td>
     </tr>
   </tbody>
-</table>
-
-<br>
-
-<table align="center">
-<thead>
-  <tr>
-    <th align="center">🌐 Other Platforms</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td align="center">
-      <img
-        src="https://github.com/user-attachments/assets/df3c1134-f88b-4508-bd3b-de1515c1f245"
-        width="820"
-      />
-    </td>
-  </tr>
-</tbody>
 </table>
 
 
