@@ -1,6 +1,6 @@
 name: flutter_reactions
-description: "A Flutter package that makes it easy to add a single reaction button that handles all events for multiple platforms, or to display reactions via overlay without the button."
-version: 0.0.1
+description: "A cross-platform Flutter package for reaction buttons and overlays."
+version: 0.0.2
 homepage: https://github.com/lapphong/flutter_reactions
 repository: https://github.com/lapphong/flutter_reactions.git
 issue_tracker: https://github.com/lapphong/flutter_reactions/issues
@@ -10,7 +10,7 @@ topics:
   - ui
   - animation
   - toast
-  - message
+  - gesture
 
 screenshots:
   - description: "The flutter reactions package logo."

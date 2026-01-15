@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-flutter clean
 flutter pub get
 flutter pub publish --dry-run
 
