@@ -1,3 +1,4 @@
+export 'animations/animated_slide.dart';
 export 'app_constants.dart';
 export 'app_dimens.dart';
 export 'extensions/build_context_ext.dart';

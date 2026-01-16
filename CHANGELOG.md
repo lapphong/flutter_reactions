@@ -1,3 +1,7 @@
+## 0.0.5
+
+- Add animation support for reactions
+
 ## 0.0.4
 
 - Implement localization support (English, Vietnamese, French, Japanese, and Chinese)

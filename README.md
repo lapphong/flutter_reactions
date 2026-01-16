@@ -20,8 +20,8 @@
 
 - sdk: >= 3.0 < 4.0
 
-## 📸  Screenshots
 
+## 📸  Screenshots
 
 <table align="center">
   <thead>
@@ -48,7 +48,7 @@
 - Reaction overlay with automatic positioning
 - Works consistently across **mobile, web, and desktop**
 - Audio feedback **support**
-- Localization **support** (**en, vi, fr, ja, zh**)
+- Localization **support** (**en, vi, fr, ja, zh, ko**)
 - Smooth, customizable **animations**
 
 
@@ -58,7 +58,7 @@
 
 ```yaml
 dependencies:
-  flutter_reactions: ^0.0.4
+  flutter_reactions: ^0.0.5
 ```
 
 #### Then run:
@@ -89,7 +89,6 @@ FlutterReactionButton(
     }
   },
 );
-
 ```
 
 ## Parameters:

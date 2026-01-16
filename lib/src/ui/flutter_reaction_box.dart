@@ -51,10 +51,12 @@ class _FlutterReactionsBoxState extends State<FlutterReactionsBox> {
           child: Stack(
             key: boxKey,
             children: [
-              Container(
-                width: config.boxWidth,
-                height: config.getBoxHeight(_flutterReactionType),
-                decoration: config.boxDecoration,
+              AnimatedSlide(
+                child: Container(
+                  width: config.boxWidth,
+                  height: config.getBoxHeight(_flutterReactionType),
+                  decoration: config.boxDecoration,
+                ),
               ),
               Container(
                 width: config.boxWidth,
@@ -66,18 +68,21 @@ class _FlutterReactionsBoxState extends State<FlutterReactionsBox> {
                     (e, index) {
                       final isActive = _flutterReactionType == e;
 
-                      return FlutterReactionItemWidget(
-                        key: itemKeys[index],
-                        type: e,
-                        itemConfig: config.itemConfig,
-                        isActive: isActive,
-                        onTap: () async {
-                          context.playAudio(AudioConstants.audioPick);
-                          setState(() => _flutterReactionType = e);
-                          widget.onChanged(e);
-                          await Future.delayed(const Duration(milliseconds: 100));
-                          context.hideReactionOverlay();
-                        },
+                      return AnimatedSlide(
+                        delay: Duration(milliseconds: 50 * index),
+                        child: FlutterReactionItemWidget(
+                          key: itemKeys[index],
+                          type: e,
+                          itemConfig: config.itemConfig,
+                          isActive: isActive,
+                          onTap: () async {
+                            context.playAudio(AudioConstants.audioPick);
+                            setState(() => _flutterReactionType = e);
+                            widget.onChanged(e);
+                            await Future.delayed(const Duration(milliseconds: 100));
+                            context.hideReactionOverlay();
+                          },
+                        ),
                       );
                     },
                   ).toList(),
