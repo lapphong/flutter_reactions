@@ -6,6 +6,10 @@ enum FlutterReactionType { like, love, care, haha, wow, sad, angry }
 
 extension FlutterReactionTypeExt on FlutterReactionType {
   String get label {
+    return FlutterReactionTranslations.text(name) ?? defaultLabel;
+  }
+
+  String get defaultLabel {
     switch (this) {
       case FlutterReactionType.like:
         return 'Like';

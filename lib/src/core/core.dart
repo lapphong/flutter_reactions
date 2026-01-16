@@ -4,6 +4,7 @@ export 'extensions/build_context_ext.dart';
 export 'extensions/iterable_ext.dart';
 export 'flutter_reaction_config.dart';
 export 'flutter_reaction_mixin.dart';
+export 'flutter_reaction_translations.dart';
 export 'resources/audio_constants.dart';
 export 'resources/gif_constants.dart';
 export 'resources/image_constants.dart';

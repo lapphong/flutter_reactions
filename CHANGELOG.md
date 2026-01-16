@@ -1,3 +1,8 @@
+## 0.0.4
+
+- Implement localization support (English, Vietnamese, French, Japanese, and Chinese)
+- Update example and README.md
+
 ## 0.0.3
 
 - Update README.md and screenshots

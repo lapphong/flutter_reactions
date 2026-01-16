@@ -101,6 +101,8 @@ class FlutterReactionOverlay {
       'when not using FlutterReactionButton, ',
     );
 
+    await FlutterReactionTranslations.load();
+
     final cf = config ?? defaultConfig;
     final offset = context.calculateReactionBoxPosition(
       key: targetKey,

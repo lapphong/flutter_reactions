@@ -67,7 +67,9 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
   Widget build(BuildContext context) {
     return TooltipWidget(
       preferBelow: true,
-      message: (flutterReactionType == null && !AppConstants.isMobile) ? 'Tap to like' : '',
+      message: (flutterReactionType == null && !AppConstants.isMobile)
+          ? (FlutterReactionTranslations.text('tap_to_like') ?? 'Tap to like')
+          : '',
       child: MouseRegion(
         onEnter: onPointerHover,
         onExit: onExit,

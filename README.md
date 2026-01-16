@@ -22,7 +22,6 @@
 
 ## 📸  Screenshots
 
-<br> 
 
 <table align="center">
   <thead>
@@ -45,11 +44,11 @@
 
 
 ## ✨ Features
-- Fully handled reaction button with built-in gesture & pointer interactions
-- Long-press reaction overlay with automatic positioning
-- Consistent behavior across **mobile, web, and desktop**
-- Built-in **audio feedback** support
-- **Multi-language** (localization-ready)
+- Fully handled reaction interactions with built-in gesture & pointer support
+- Reaction overlay with automatic positioning
+- Works consistently across **mobile, web, and desktop**
+- Audio feedback **support**
+- Localization **support** (**en, vi, fr, ja, zh**)
 - Smooth, customizable **animations**
 
 
@@ -59,7 +58,7 @@
 
 ```yaml
 dependencies:
-  flutter_reactions: ^0.0.1
+  flutter_reactions: ^0.0.4
 ```
 
 #### Then run:
@@ -93,7 +92,7 @@ FlutterReactionButton(
 
 ```
 
-#### `FlutterReactionButton` Parameters:
+## Parameters:
 
 | Name                  | Description                                                         | Required | Default value |
 | --------------------- | ------------------------------------------------------------------- | -------- | ------------- |
@@ -113,7 +112,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🤝 Contributing
 
-<h3>Contributions are welcome! Please read our contributing guidelines before submitting a PR.</h3>
+<h4>Contributions are welcome! Please read our contributing guidelines before submitting a PR.</h4>
 
 ---
 
