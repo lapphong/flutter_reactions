@@ -40,13 +40,10 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
   @override
   FlutterReactionType? get flutterReactionType => widget.value;
 
+  ValueChanged<FlutterReactionType?> get onChanged => widget.onChanged;
+
   @override
   Rect get widgetRect => widgetKey.currentContext!.getRenderObjectInfo.$1;
-
-  void _onChangedReactionType(FlutterReactionType? value) async {
-    setState(() => flutterReactionType = value);
-    widget.onChanged(value);
-  }
 
   @override
   void dispose() {
@@ -59,7 +56,7 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
     context.showReactionOverlay(
       config: widget.config,
       value: flutterReactionType,
-      onChanged: _onChangedReactionType,
+      onChanged: onChanged,
     );
   }
 
@@ -87,11 +84,11 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
             onPointerUp(
               PointerUpEvent(position: details.globalPosition),
               autoClose: false,
-              onChanged: _onChangedReactionType,
+              onChanged: onChanged,
             );
           },
-          onTap: () => onTap(onChanged: _onChangedReactionType),
-          onDoubleTap: () => onDoubleTap(onChanged: _onChangedReactionType),
+          onTap: () => onTap(onChanged: onChanged),
+          onDoubleTap: () => onDoubleTap(onChanged: onChanged),
           child: widget.child ?? _buildReactionWidget(),
         ),
       ),

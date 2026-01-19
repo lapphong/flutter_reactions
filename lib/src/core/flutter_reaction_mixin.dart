@@ -21,7 +21,7 @@ mixin FlutterReactionMixin<T extends StatefulWidget> on State<T> {
   /// Handles tap-based reaction logic (tap / double tap)
   void _handleReactionTap({
     required FlutterReactionType reaction,
-    required Function(FlutterReactionType?) onChanged,
+    required ValueChanged<FlutterReactionType?> onChanged,
   }) {
     FlutterReactionType? value;
     if (flutterReactionType != null && flutterReactionType != reaction) {
@@ -37,14 +37,14 @@ mixin FlutterReactionMixin<T extends StatefulWidget> on State<T> {
     _allow = false;
   }
 
-  void onTap({required Function(FlutterReactionType?) onChanged}) {
+  void onTap({required ValueChanged<FlutterReactionType?> onChanged}) {
     _handleReactionTap(
       reaction: FlutterReactionType.like,
       onChanged: onChanged,
     );
   }
 
-  void onDoubleTap({required Function(FlutterReactionType?) onChanged}) {
+  void onDoubleTap({required ValueChanged<FlutterReactionType?> onChanged}) {
     _handleReactionTap(
       reaction: FlutterReactionType.love,
       onChanged: onChanged,

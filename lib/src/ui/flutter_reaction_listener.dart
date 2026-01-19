@@ -58,12 +58,13 @@ class _FlutterReactionListenerState extends State<FlutterReactionListener> with 
       children: [
         child,
         if (_boxRect != null && widget.debug == kDebugMode && AppConstants.isMobile)
-          _ReactionDragAreaDebug(boxRect: _boxRect!),
+          _ReactionDragAreaDebug(boxRect: _boxRect!), // coverage:ignore-line
       ],
     );
   }
 }
 
+// coverage:ignore-start
 class _ReactionDragAreaDebug extends StatelessWidget {
   final Rect boxRect;
 
@@ -92,3 +93,4 @@ class _ReactionDragAreaDebug extends StatelessWidget {
     );
   }
 }
+// coverage:ignore-end
