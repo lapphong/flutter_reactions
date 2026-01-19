@@ -6,3 +6,6 @@ publish:
 
 format:
 	sh scripts/format.sh -f
+
+cov:
+	sh scripts/cov.sh -f
