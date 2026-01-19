@@ -23,39 +23,14 @@
 
 ## 📸  Screenshots
 
-<table align="center">
-  <thead>
-    <tr>
-      <th align="center" colspan="2">📱 Mobile & Safe Area</th>
-    </tr>
-  </thead>
+#### Demo: (`Normal`, `Safe Area`, `Debug mode`)
 
-  <tbody>
-    <tr>
-      <td align="center">
-        <img src="https://raw.githubusercontent.com/lapphong/flutter_reactions/main/screenshots/demo_mobile.gif"/>
-      </td>
-      <td align="center">
-        <img src="https://raw.githubusercontent.com/lapphong/flutter_reactions/main/screenshots/demo_mobile_2.gif"/>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table align="center">
-  <thead>
-    <tr>
-      <th align="center">Debug</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td align="center">
-        <img src="https://raw.githubusercontent.com/lapphong/flutter_reactions/main/screenshots/demo_debug.gif"/>
-      </td>
-    </tr>
-  </tbody>
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/lapphong/flutter_reactions/main/screenshots/demo_mobile.gif" alt="Dash light" width="258"/></td>
+    <td><img src="https://raw.githubusercontent.com/lapphong/flutter_reactions/main/screenshots/demo_mobile_2.gif" alt="Dash dark" width="258"/></td>
+    <td><img src="https://raw.githubusercontent.com/lapphong/flutter_reactions/main/screenshots/demo_debug.gif" alt="M3 baseline light" width="258"/></td>
+  </tr>
 </table>
 
 
