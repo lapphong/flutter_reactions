@@ -60,6 +60,7 @@ class _Example1State extends State<Example1> {
   @override
   Widget build(BuildContext context) {
     return FlutterReactionButton(
+      config: FlutterReactionConfig(debug: true),
       value: flutterReactionType,
       onChanged: (value) {
         setState(() {

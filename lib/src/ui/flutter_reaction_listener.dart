@@ -1,14 +1,18 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../core/core.dart';
 import 'flutter_reaction_builder.dart';
+import 'flutter_reaction_overlay.dart';
 
 class FlutterReactionListener extends StatefulWidget {
+  final bool? debug;
   final GlobalKey targetKey;
   final ValueChanged<FlutterReactionType?> onChanged;
 
   const FlutterReactionListener({
     super.key,
+    this.debug,
     required this.targetKey,
     required this.onChanged,
   });
@@ -21,54 +25,49 @@ class _FlutterReactionListenerState extends State<FlutterReactionListener> with 
   @override
   Rect get widgetRect => widget.targetKey.currentContext!.getRenderObjectInfo.$1;
 
+  // DEBUG
+  Rect? _boxRect;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      setState(() {
+        _boxRect = boxKey.currentContext?.getRenderObjectInfo.$1;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Listener(
-      behavior: HitTestBehavior.translucent,
-      onPointerDown: onPointerDown,
-      onPointerMove: onPointerMove,
-      onPointerUp: (event) => onPointerUp(event, onChanged: widget.onChanged),
-      onPointerHover: (event) => onPointerHover(event, isOpen: false),
-      child: const SizedBox.expand(),
+    return _buildWidgetDebug(
+      child: Listener(
+        behavior: HitTestBehavior.translucent,
+        onPointerDown: onPointerDown,
+        onPointerMove: onPointerMove,
+        onPointerUp: (event) => onPointerUp(event, onChanged: widget.onChanged),
+        onPointerHover: (event) => onPointerHover(event, isOpen: false),
+        child: const SizedBox.expand(),
+      ),
     );
   }
 
-  // DEBUG
-  // Rect? _boxRect;
-  // @override
-  // void didChangeDependencies() {
-  //   super.didChangeDependencies();
-  //   WidgetsBinding.instance.addPostFrameCallback((_) {
-  //     if (!mounted) return;
-  //     setState(() {
-  //       _boxRect = boxKey.currentContext?.getRenderObjectInfo.$1;
-  //     });
-  //   });
-  // }
-
-  // DEBUG
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Stack(
-  //     children: [
-  //       Listener(
-  //         behavior: HitTestBehavior.translucent,
-  //         onPointerDown: onPointerDown,
-  //         onPointerMove: onPointerMove,
-  //         onPointerUp: (event) => onPointerUp(event, onChanged: widget.onChanged),
-  //         onPointerHover: (event) => onPointerHover(event, isOpen: false),
-  //         child: const SizedBox.expand(),
-  //       ),
-  //       if (_boxRect != null) ReactionDragAreaDebug(boxRect: _boxRect!),
-  //     ],
-  //   );
-  // }
+  Widget _buildWidgetDebug({required Widget child}) {
+    return Stack(
+      children: [
+        child,
+        if (_boxRect != null && widget.debug == kDebugMode && AppConstants.isMobile)
+          _ReactionDragAreaDebug(boxRect: _boxRect!),
+      ],
+    );
+  }
 }
 
-class ReactionDragAreaDebug extends StatelessWidget {
+class _ReactionDragAreaDebug extends StatelessWidget {
   final Rect boxRect;
 
-  const ReactionDragAreaDebug({super.key, required this.boxRect});
+  const _ReactionDragAreaDebug({required this.boxRect});
 
   @override
   Widget build(BuildContext context) {

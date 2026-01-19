@@ -1,3 +1,10 @@
+## 1.0.0
+
+- Add tooltip support for mobile
+- Introduce debug mode for reaction overlay
+- Improve performance and internal code structure
+- Update README.md
+
 ## 0.0.5
 
 - Add animation support for reactions

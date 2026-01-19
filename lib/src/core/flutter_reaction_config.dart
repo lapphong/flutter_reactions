@@ -4,6 +4,7 @@ import '../ui/flutter_reaction_builder.dart';
 import 'app_constants.dart';
 
 class FlutterReactionConfig {
+  final bool? debug;
   final double boxWidth;
   final double boxHeight;
   final BoxDecoration boxDecoration;
@@ -11,6 +12,7 @@ class FlutterReactionConfig {
   final FlutterReactionItemConfig itemConfig;
 
   FlutterReactionConfig({
+    this.debug = false,
     double? boxWidth,
     double? boxHeight,
     BoxDecoration? boxDecoration,

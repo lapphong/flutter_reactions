@@ -92,6 +92,7 @@ class FlutterReactionItemWidgetState extends State<FlutterReactionItemWidget> wi
             },
             child: TooltipWidget(
               message: e.label,
+              visible: padding != 0,
               child: AnimatedBuilder(
                 animation: Listenable.merge([
                   _scaleController,

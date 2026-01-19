@@ -42,6 +42,22 @@
   </tbody>
 </table>
 
+<table align="center">
+  <thead>
+    <tr>
+      <th align="center">Debug</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td align="center">
+        <img src="https://raw.githubusercontent.com/lapphong/flutter_reactions/main/screenshots/demo_debug.gif"/>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## ✨ Features
 - Fully handled reaction interactions with built-in gesture & pointer support
@@ -58,7 +74,7 @@
 
 ```yaml
 dependencies:
-  flutter_reactions: ^0.0.5
+  flutter_reactions: ^1.0.0
 ```
 
 #### Then run:

@@ -42,6 +42,7 @@ class _FlutterReactionsBoxState extends State<FlutterReactionsBox> {
     return Stack(
       children: [
         FlutterReactionListener(
+          debug: config.debug,
           targetKey: targetAnchor.key,
           onChanged: widget.onChanged,
         ),
