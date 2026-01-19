@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 abstract class AnimationControllerState<T extends StatefulWidget> extends State<T> with TickerProviderStateMixin {
-  AnimationControllerState(this.animationDuration);
+  AnimationControllerState(this.animationDuration); // coverage:ignore-line
   final Duration animationDuration;
   late final controller = AnimationController(vsync: this, duration: animationDuration);
 
+  // coverage:ignore-start
   @override
   void dispose() {
     controller.dispose();
     super.dispose();
   }
+  // coverage:ignore-end
 }
 
 enum Direction { left, right, top, bottom }

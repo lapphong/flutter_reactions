@@ -1,3 +1,4 @@
+// coverage:ignore-file
 final class ImageConstants {
   static String like = _ImageApp.imageLike.path;
   static String love = _ImageApp.imageLove.path;

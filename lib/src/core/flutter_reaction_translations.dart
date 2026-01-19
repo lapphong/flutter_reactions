@@ -4,20 +4,20 @@ import 'dart:ui';
 import 'package:flutter/services.dart';
 
 class FlutterReactionTranslations {
-  static final Map<String, Map<String, String>> _cache = {};
+  static final Map<String, Map<String, String>> cache = {};
 
   static Future<void> load() async {
     final locale = PlatformDispatcher.instance.locale;
     final code = locale.languageCode;
 
-    if (_cache.containsKey(code)) return;
+    if (cache.containsKey(code)) return;
     final data = await rootBundle.loadString('packages/flutter_reactions/assets/l10n/$code.json');
-    _cache[code] = Map<String, String>.from(json.decode(data));
+    cache[code] = Map<String, String>.from(json.decode(data));
   }
 
   static String? text(String key) {
     final code = PlatformDispatcher.instance.locale.languageCode;
-    final map = _cache[code] ?? _cache['en'];
+    final map = cache[code] ?? cache['en'];
 
     if (map == null) return null;
 

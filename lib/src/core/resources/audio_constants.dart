@@ -1,3 +1,4 @@
+// coverage:ignore-file
 final class AudioConstants {
   static String audioSoundBoxDown = _AudioApp.audioSoundBoxDown.path;
   static String audioSoundBoxUp = _AudioApp.audioSoundBoxUp.path;

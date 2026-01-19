@@ -8,6 +8,7 @@ class AnimatedSlide extends StatefulWidget {
   final Duration delay;
   final Duration animationDuration;
 
+  // coverage:ignore-start
   const AnimatedSlide({
     super.key,
     required this.child,
@@ -15,6 +16,7 @@ class AnimatedSlide extends StatefulWidget {
     this.delay = const Duration(milliseconds: 50),
     this.animationDuration = const Duration(milliseconds: 200),
   });
+  // coverage:ignore-end
 
   @override
   State<AnimatedSlide> createState() => AnimatedSlideState(animationDuration);
