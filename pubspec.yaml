@@ -1,6 +1,6 @@
 name: flutter_reactions
 description: "A cross-platform Flutter package for reaction buttons and overlays."
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/lapphong/flutter_reactions
 repository: https://github.com/lapphong/flutter_reactions.git
 issue_tracker: https://github.com/lapphong/flutter_reactions/issues

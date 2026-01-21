@@ -7,6 +7,9 @@
 <p>
 <a href="https://pub.dev/packages/flutter_reactions"><img src="https://img.shields.io/pub/v/flutter_reactions.svg" alt="Pub Version"></a>
 <a href="https://github.com/felangel/bloc/actions"><img src="https://github.com/felangel/bloc/actions/workflows/main.yaml/badge.svg" alt="build"></a>
+<a href="https://github.com/lapphong/flutter_reactions/blob/main/screenshots/coverage.png">
+  <img src="https://img.shields.io/badge/coverage-report-blue?logo=github" alt="Coverage Report">
+</a>
 <a href="https://github.com/lapphong/flutter_reactions"><img src="https://img.shields.io/github/stars/lapphong/flutter_reactions?style=social" alt="Star on Github"></a>
 <a href="https://pub.dev/packages/flutter_reactions/example"><img src="https://img.shields.io/badge/flutter-samples-teal.svg?longCache=true" alt="Flutter Example"></a>
 <a href="https://github.com/lapphong/flutter_reactions/blob/main/LICENSE"><img src="https://img.shields.io/github/license/lapphong/flutter_reactions.svg" alt="License: MIT"></a>
@@ -23,7 +26,7 @@
 
 ## 📸  Screenshots
 
-#### Demo: (`Normal`, `Safe Area`, `Debug mode`)
+- Demo: `Normal`, `Safe Area`, `Debug mode`
 
 <table>
   <tr>

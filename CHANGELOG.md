@@ -1,3 +1,7 @@
+## 1.0.3
+
+- Update README.md
+
 ## 1.0.2
 
 - Add unit tests and coverage
