@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../core.dart';
 
 extension BuildContextExt on BuildContext {
-  Size get screenSize => MediaQuery.of(this).size; // coverage:ignore-line
+  Size get screenSize => MediaQuery.of(this).size;
 
-  double get safeTop => MediaQuery.of(this).padding.top; // coverage:ignore-line
+  double get safeTop => MediaQuery.of(this).padding.top;
 
   (Rect, Offset, Size) get getRenderObjectInfo {
     final renderBox = findRenderObject() as RenderBox;

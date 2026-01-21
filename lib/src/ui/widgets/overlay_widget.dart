@@ -1,4 +1,3 @@
-// coverage:ignore-file
 import 'package:flutter/material.dart';
 
 class OverlayWidget extends StatelessWidget {

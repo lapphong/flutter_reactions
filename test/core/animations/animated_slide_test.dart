@@ -7,7 +7,6 @@ void main() {
     await tester.pumpWidget(
       const MaterialApp(
         home: AnimatedSlide(
-          delay: Duration.zero,
           child: Text('Hello'),
         ),
       ),

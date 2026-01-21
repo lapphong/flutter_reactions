@@ -7,16 +7,6 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('BuildContextExt.calculateReactionBoxPosition', () {
-    late bool originalIsMobile;
-
-    setUp(() {
-      originalIsMobile = AppConstants.isMobile;
-    });
-
-    tearDown(() {
-      AppConstants.isMobile = originalIsMobile;
-    });
-
     testWidgets('returns Offset.zero when target is not mounted', (tester) async {
       final key = GlobalKey();
       const overlaySize = Size(100, 50);

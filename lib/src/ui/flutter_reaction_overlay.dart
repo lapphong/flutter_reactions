@@ -14,7 +14,7 @@ extension FlutterReactionOverlayExt on BuildContext {
     try {
       await _player.play(AssetSource(asset));
     } catch (e) {
-      debugPrint('[FlutterReactionOverlayExt] playAudio: $e');
+      debugPrint('[FlutterReactionOverlayExt] playAudio: $e'); // coverage:ignore-line
     }
   }
 

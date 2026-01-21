@@ -1,4 +1,3 @@
-// coverage:ignore-file
 final class GifConstants {
   static String like = _GifApp.gifLike.path;
   static String love = _GifApp.gifLove.path;
