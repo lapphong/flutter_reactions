@@ -5,17 +5,6 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('FlutterReactionConfig', () {
-    late bool originalIsMobile;
-
-    setUp(() {
-      originalIsMobile = AppConstants.isMobile;
-      AppConstants.isMobile = true;
-    });
-
-    tearDown(() {
-      AppConstants.isMobile = originalIsMobile;
-    });
-
     test('uses default values when no params are provided', () {
       final config = FlutterReactionConfig();
 

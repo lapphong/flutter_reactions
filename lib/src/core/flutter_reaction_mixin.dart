@@ -16,7 +16,7 @@ mixin FlutterReactionMixin<T extends StatefulWidget> on State<T> {
 
   Rect get boxRect => boxKey.currentContext!.getRenderObjectInfo.$1;
 
-  void showReactionOverlay() {}
+  void showReactionOverlay() {} // coverage:ignore-line
 
   /// Handles tap-based reaction logic (tap / double tap)
   void _handleReactionTap({

@@ -61,7 +61,8 @@ class _FlutterReactionsBoxState extends State<FlutterReactionsBox> {
               ),
               Container(
                 width: config.boxWidth,
-                height: config.getBoxHeight(_flutterReactionType),
+                // Extra space to compensate for `config.boxPadding` and avoid overflow during animations
+                height: config.getBoxHeight(_flutterReactionType) + AppConstants.dimens.spacing,
                 padding: config.boxPadding,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

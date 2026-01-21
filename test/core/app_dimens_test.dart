@@ -1,25 +1,24 @@
-import 'package:flutter_reactions/src/core/app_constants.dart';
-import 'package:flutter_reactions/src/core/app_dimens.dart';
+import 'package:flutter_reactions/src/core/core.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('AppDimens.current', () {
-    late bool originalIsMobile;
-
-    setUp(() {
-      originalIsMobile = AppConstants.isMobile;
-    });
-
-    tearDown(() {
-      AppConstants.isMobile = originalIsMobile;
-    });
-
     test('AppConstants.dimens forwards to AppDimens.current', () {
       AppConstants.isMobile = true;
       expect(AppConstants.dimens, isA<MobileDimens>());
 
       AppConstants.isMobile = false;
       expect(AppConstants.dimens, isA<DesktopDimens>());
+    });
+
+    test('ImageConstants should expose all image paths', () {
+      expect(ImageConstants.like, isNotEmpty);
+      expect(ImageConstants.love, isNotEmpty);
+      expect(ImageConstants.care, isNotEmpty);
+      expect(ImageConstants.haha, isNotEmpty);
+      expect(ImageConstants.wow, isNotEmpty);
+      expect(ImageConstants.sad, isNotEmpty);
+      expect(ImageConstants.angry, isNotEmpty);
     });
   });
 
