@@ -25,7 +25,7 @@ run_tests() {
     if [[ -f "pubspec.yaml" ]]; then
         rm -f coverage/lcov.info
         rm -f coverage/lcov-final.info
-        flutter test --coverage
+        flutter test --no-pub --coverage
     else
         printf "\n${red}Error: this is not a Flutter project${none}"
         exit 1

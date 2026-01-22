@@ -26,7 +26,7 @@
 
 ## 📸  Screenshots
 
-#### Demo: (`Normal`, `Safe Area`, `Debug mode`)
+- Demo: `Normal`, `Safe Area`, `Debug mode`
 
 <table>
   <tr>
