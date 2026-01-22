@@ -9,3 +9,6 @@ format:
 
 cov:
 	sh scripts/cov.sh -f
+
+tags:
+	sh scripts/check_release_tag.sh -f
