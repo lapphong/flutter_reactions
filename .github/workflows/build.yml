@@ -6,8 +6,11 @@ on:
       - 'v*.*.*'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  lint_and_test:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -41,17 +44,6 @@ jobs:
         with:
           name: coverage
           path: coverage/
-
-  release:
-    runs-on: ubuntu-latest
-    needs: lint_and_test
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

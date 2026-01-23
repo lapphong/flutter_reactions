@@ -1,3 +1,9 @@
+## 1.0.4
+
+- Set up CI/CD pipeline with linting, tests, and publish workflow
+- Add contributing guidelines for pull requests and tagging
+- Consolidate unit tests, widget tests, and full code coverage
+
 ## 1.0.3
 
 - Update README.md
