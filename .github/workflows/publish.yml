@@ -5,13 +5,11 @@ on:
     inputs:
       tag:
         description: 'Git tag to publish (e.g. v1.2.3). Must already exist.'
-        required: true
+        required: false
+        default: ''
 
 jobs:
   publish:
-    if: >
-      github.event.workflow_run.conclusion == 'success' &&
-      startsWith(github.event.workflow_run.head_branch, 'v')
     permissions:
       id-token: write
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
