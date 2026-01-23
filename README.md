@@ -5,14 +5,24 @@
 </p>
 
 <p>
-<a href="https://pub.dev/packages/flutter_reactions"><img src="https://img.shields.io/pub/v/flutter_reactions.svg" alt="Pub Version"></a>
-<a href="https://github.com/felangel/bloc/actions"><img src="https://github.com/felangel/bloc/actions/workflows/main.yaml/badge.svg" alt="build"></a>
-<a href="https://github.com/lapphong/flutter_reactions/blob/main/screenshots/coverage.png">
-  <img src="https://img.shields.io/badge/coverage-report-blue?logo=github" alt="Coverage Report">
-</a>
-<a href="https://github.com/lapphong/flutter_reactions"><img src="https://img.shields.io/github/stars/lapphong/flutter_reactions?style=social" alt="Star on Github"></a>
-<a href="https://pub.dev/packages/flutter_reactions/example"><img src="https://img.shields.io/badge/flutter-samples-teal.svg?longCache=true" alt="Flutter Example"></a>
-<a href="https://github.com/lapphong/flutter_reactions/blob/main/LICENSE"><img src="https://img.shields.io/github/license/lapphong/flutter_reactions.svg" alt="License: MIT"></a>
+  <a href="https://pub.dev/packages/flutter_reactions">
+    <img src="https://img.shields.io/pub/v/flutter_reactions.svg" alt="Pub Version">
+  </a>
+  <a href="https://github.com/lapphong/flutter_reactions/actions">
+    <img src="https://github.com/lapphong/flutter_reactions/actions/workflows/build.yml/badge.svg" alt="Build"/>
+  </a>
+  <a href="https://github.com/lapphong/flutter_reactions/blob/main/screenshots/coverage.png">
+    <img src="https://img.shields.io/badge/coverage-report-blue?logo=github" alt="Coverage Report">
+  </a>
+  <a href="https://github.com/lapphong/flutter_reactions">
+    <img src="https://img.shields.io/github/stars/lapphong/flutter_reactions?style=social" alt="Star on Github">
+  </a>
+  <a href="https://pub.dev/packages/flutter_reactions/example">
+    <img src="https://img.shields.io/badge/flutter-samples-teal.svg?longCache=true" alt="Flutter Example">
+  </a>
+  <a href="https://github.com/lapphong/flutter_reactions/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/lapphong/flutter_reactions.svg" alt="License: MIT">
+  </a>
 </p>
 
 | Android |  iOS  | macOS |  Web  | Linux | Windows |
@@ -39,11 +49,9 @@
 
 ## ✨ Features
 - Fully handled reaction interactions with built-in gesture & pointer support
-- Reaction overlay with automatic positioning
-- Works consistently across **mobile, web, and desktop**
-- Audio feedback **support**
 - Localization **support** (**en, vi, fr, ja, zh, ko**)
 - Smooth, customizable **animations**
+- Covered by unit and widget tests (100% coverage)
 
 
 ## 🚀 Quick start

@@ -1,0 +1,17 @@
+name: publish
+
+on:
+  workflow_dispatch: # Allow manual trigger
+    inputs:
+      tag:
+        description: 'Git tag to publish (e.g. v1.2.3). Must already exist.'
+        required: false
+        default: ''
+
+jobs:
+  publish:
+    permissions:
+      id-token: write
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+    with:
+      environment: pub.dev
