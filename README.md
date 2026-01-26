@@ -40,7 +40,7 @@
 ## 📸  Screenshots
 
 - [Live Web demo](https://lapphong.github.io/flutter_reactions/)
-- Demo: (`Normal`, `Safe Area`, `Debug mode`).
+- Showcase: (`Normal`, `Safe Area`, `Debug mode`)
 
 <table>
   <tr>
@@ -55,7 +55,7 @@
 - Fully handled reaction interactions with built-in gesture & pointer support
 - Localization **support** (**en, vi, fr, ja, zh, ko**)
 - Smooth, customizable **animations**
-- Covered by unit and widget tests (100% coverage)
+- Covered by unit and widget tests (100% coverage).
 
 
 ## 🚀 Quick start

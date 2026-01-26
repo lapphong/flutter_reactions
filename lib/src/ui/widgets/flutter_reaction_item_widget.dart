@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/core.dart';
 import '../flutter_reaction_builder.dart';
+import '../flutter_reaction_overlay.dart';
 import 'widgets.dart';
 
 class FlutterReactionItemWidget extends StatefulWidget {
@@ -61,6 +62,7 @@ class FlutterReactionItemWidgetState extends State<FlutterReactionItemWidget> wi
   }
 
   void onFocus() {
+    if (!AppConstants.isMobile) context.playAudio(AudioConstants.audioFocus);
     _scaleController.forward();
     setState(() => padding = config.iconPadding);
   }
