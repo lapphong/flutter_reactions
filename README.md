@@ -17,6 +17,9 @@
   <a href="https://github.com/lapphong/flutter_reactions">
     <img src="https://img.shields.io/github/stars/lapphong/flutter_reactions?style=social" alt="Star on Github">
   </a>
+  <a href="https://lapphong.github.io/flutter_reactions/">
+    <img src="https://img.shields.io/badge/Live%20Demo-Available-7D64F2" alt="Live Demo">
+  </a>
   <a href="https://pub.dev/packages/flutter_reactions/example">
     <img src="https://img.shields.io/badge/flutter-samples-teal.svg?longCache=true" alt="Flutter Example">
   </a>
@@ -36,7 +39,8 @@
 
 ## 📸  Screenshots
 
-- Demo: `Normal`, `Safe Area`, `Debug mode`
+- [Live Web demo](https://lapphong.github.io/flutter_reactions/)
+- Demo: (`Normal`, `Safe Area`, `Debug mode`).
 
 <table>
   <tr>
@@ -60,7 +64,7 @@
 
 ```yaml
 dependencies:
-  flutter_reactions: ^1.0.0
+  flutter_reactions: ^1.0.5
 ```
 
 #### Then run:

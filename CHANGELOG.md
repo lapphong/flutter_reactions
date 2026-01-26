@@ -1,3 +1,7 @@
+## 1.0.5
+
+- Add live web demo example
+
 ## 1.0.4
 
 - Set up CI/CD pipeline with linting, tests, and publish workflow
