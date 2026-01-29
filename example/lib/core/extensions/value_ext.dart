@@ -7,15 +7,7 @@ typedef FlutterReactionCustomBuilder =
 typedef ValueSettingsBuilder = (AlignmentGeometry, FlutterReactionConfig, bool);
 
 extension ValueExt on ValueNotifier<ValueSettingsBuilder> {
-  void updateAlignment(AlignmentGeometry alignment) {
-    value = (alignment, value.$2, value.$3);
-  }
-
-  void updateConfig(FlutterReactionConfig config) {
-    value = (value.$1, config, value.$3);
-  }
-
-  void updateExample2(bool example2) {
-    value = (value.$1, value.$2, example2);
+  void updateValue(ValueSettingsBuilder e) {
+    value = (e.$1, e.$2, e.$3);
   }
 }

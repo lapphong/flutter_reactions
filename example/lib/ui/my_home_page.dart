@@ -1,8 +1,8 @@
-import 'package:example/layout_page.dart';
+import 'package:example/ui/layout_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_reactions/flutter_reactions.dart';
 
-import 'core/core.dart';
+import '../core/core.dart';
 
 class MyHomePage extends StatefulWidget {
   final FlutterReactionCustomBuilder builder;
@@ -24,11 +24,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(title: const Text('Flutter Reaction Page')),
       backgroundColor: Colors.grey.withValues(alpha: 0.15),
       body: LayoutPage(
+        value: _value.value,
         isSetting: _isSettings,
         onCloseSetting: (value) => setState(() => _isSettings = value!),
-        onUpdateAlignment: (AlignmentGeometry alignment) => _value.updateAlignment(alignment),
-        onUpdateConfig: (FlutterReactionConfig config) => _value.updateConfig(config),
-        onUpdateExample2: (bool example2) => _value.updateExample2(example2),
+        onChanged: (value) => _value.updateValue(value),
         child: ValueListenableBuilder(
           valueListenable: _value,
           builder: (context, value, child) {

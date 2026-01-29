@@ -2,7 +2,7 @@ import 'package:example/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_reactions/flutter_reactions.dart';
 
-import 'my_home_page.dart';
+import 'ui/my_home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,16 +29,14 @@ class MyApp extends StatelessWidget {
         builder: (alignment, config, visibleExample2) {
           return Align(
             alignment: alignment,
-            child: !visibleExample2
-                ? Example1(config: config)
-                : Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Example1(config: config),
-                      SizedBox(height: context.height / 4.5),
-                      Example2(),
-                    ],
-                  ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Example1(config: config),
+                if (visibleExample2) SizedBox(height: context.height / 4.5),
+                Offstage(offstage: !visibleExample2, child: Example2()),
+              ],
+            ),
           );
         },
       ),

@@ -1,30 +1,58 @@
+import 'package:example/core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_reactions/flutter_reactions.dart';
 
-class SettingWidget extends StatelessWidget {
-  final ValueChanged<AlignmentGeometry> onUpdateAlignment;
-  final ValueChanged<FlutterReactionConfig> onUpdateConfig;
-  final ValueChanged<bool> onUpdateExample2;
+class SettingWidget extends StatefulWidget {
+  final ValueSettingsBuilder value;
+  final ValueChanged<ValueSettingsBuilder> onChanged;
 
   const SettingWidget({
     super.key,
-    required this.onUpdateAlignment,
-    required this.onUpdateConfig,
-    required this.onUpdateExample2,
+    required this.value,
+    required this.onChanged,
   });
 
   @override
+  State<SettingWidget> createState() => _SettingWidgetState();
+}
+
+class _SettingWidgetState extends State<SettingWidget> {
+  late ValueSettingsBuilder _value;
+
+  @override
+  void initState() {
+    super.initState();
+    _value = widget.value;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SingleChildScrollView(
-        child: Column(
-          children: List.generate(
-            20,
-            (index) {
-              return ListTile(title: Text(index.toString()));
-            },
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          CustomBoxWidget(
+            width: double.infinity,
+            color: Colors.blue,
+            borderRadius: BorderRadius.only(topLeft: context.radius, topRight: context.radius),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Center(
+                child: Text(
+                  'Config',
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),
+                ),
+              ),
+            ),
           ),
-        ),
+          ...SettingBuilder.values.map((e) {
+            return e.build(
+              value: _value,
+              onChanged: (e) {
+                setState(() => _value = e);
+                widget.onChanged(_value);
+              },
+            );
+          }),
+        ],
       ),
     );
   }
