@@ -1,5 +1,8 @@
+import 'package:example/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_reactions/flutter_reactions.dart';
+
+import 'ui/my_home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,38 +20,35 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xff1E90FF)),
+        scaffoldBackgroundColor: Colors.grey.withValues(alpha: 0.15),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.blue,
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Flutter Reaction Page')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Example1(),
-            Example2(),
-          ],
-        ),
+      home: MyHomePage(
+        builder: (alignment, config, visibleExample2) {
+          return Align(
+            alignment: alignment,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Example1(config: config),
+                if (visibleExample2) SizedBox(height: context.height / 4.5),
+                Offstage(offstage: !visibleExample2, child: Example2()),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
 }
 
 class Example1 extends StatefulWidget {
-  const Example1({super.key});
+  final FlutterReactionConfig config;
+
+  const Example1({super.key, required this.config});
 
   @override
   State<Example1> createState() => _Example1State();
@@ -60,7 +60,7 @@ class _Example1State extends State<Example1> {
   @override
   Widget build(BuildContext context) {
     return FlutterReactionButton(
-      config: FlutterReactionConfig(debug: true),
+      config: widget.config,
       value: flutterReactionType,
       onChanged: (value) {
         setState(() {
@@ -103,6 +103,7 @@ class _Example2State extends State<Example2> {
   Widget build(BuildContext context) {
     return IconButton(
       key: key, // Required GlobalKey
+      tooltip: 'Long press',
       onPressed: () {
         if (flutterReactionType != null) {
           setState(() {

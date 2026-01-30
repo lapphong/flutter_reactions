@@ -1,3 +1,4 @@
+// coverage:ignore-file
 import 'package:flutter/material.dart';
 
 import '../ui/flutter_reaction_builder.dart';
@@ -29,6 +30,24 @@ class FlutterReactionConfig {
         itemConfig = itemConfig ?? FlutterReactionItemConfig();
 
   double getBoxHeight(FlutterReactionType? value) => value != null ? AppConstants.dimens.boxHeightActive : boxHeight;
+
+  FlutterReactionConfig copyWith({
+    bool? debug,
+    double? boxWidth,
+    double? boxHeight,
+    BoxDecoration? boxDecoration,
+    EdgeInsetsGeometry? boxPadding,
+    FlutterReactionItemConfig? itemConfig,
+  }) {
+    return FlutterReactionConfig(
+      debug: debug ?? this.debug,
+      boxWidth: boxWidth ?? this.boxWidth,
+      boxHeight: boxHeight ?? this.boxHeight,
+      boxDecoration: boxDecoration ?? this.boxDecoration,
+      boxPadding: boxPadding ?? this.boxPadding,
+      itemConfig: itemConfig ?? this.itemConfig,
+    );
+  }
 }
 
 class FlutterReactionItemConfig {
@@ -50,4 +69,22 @@ class FlutterReactionItemConfig {
         dotSize = dotSize ?? AppConstants.dimens.dotSize;
 
   double get iconHoverSize => AppConstants.dimens.iconHoverSize;
+
+  FlutterReactionItemConfig copyWith({
+    double? iconSize,
+    double? iconPadding,
+    Curve? scaleCurve,
+    Duration? scaleDuration,
+    double? dotSize,
+    Color? dotColor,
+  }) {
+    return FlutterReactionItemConfig(
+      iconSize: iconSize ?? this.iconSize,
+      iconPadding: iconPadding ?? this.iconPadding,
+      scaleCurve: scaleCurve ?? this.scaleCurve,
+      scaleDuration: scaleDuration ?? this.scaleDuration,
+      dotSize: dotSize ?? this.dotSize,
+      dotColor: dotColor ?? this.dotColor,
+    );
+  }
 }

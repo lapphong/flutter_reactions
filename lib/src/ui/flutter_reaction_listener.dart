@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../core/core.dart';
@@ -57,7 +56,7 @@ class _FlutterReactionListenerState extends State<FlutterReactionListener> with 
     return Stack(
       children: [
         child,
-        if (_boxRect != null && widget.debug == kDebugMode && AppConstants.isMobile)
+        if (_boxRect != null && widget.debug == true)
           _ReactionDragAreaDebug(boxRect: _boxRect!), // coverage:ignore-line
       ],
     );

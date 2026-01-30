@@ -24,7 +24,7 @@ final class MobileDimens implements AppDimens {
   double get boxHeight => 45.0;
 
   @override
-  double get iconSize => 35.0;
+  double get iconSize => boxHeight - 10.0;
 
   @override
   double get dotSize => 4.0;
@@ -49,7 +49,7 @@ final class DesktopDimens implements AppDimens {
   double get boxHeight => 49.0;
 
   @override
-  double get iconSize => 39.0;
+  double get iconSize => boxHeight - 10.0;
 
   @override
   double get dotSize => 5.0;
