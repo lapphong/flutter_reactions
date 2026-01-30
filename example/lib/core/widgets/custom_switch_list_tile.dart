@@ -4,12 +4,12 @@ class CustomSwitchListTile extends StatefulWidget {
   const CustomSwitchListTile({
     super.key,
     required this.label,
-    this.value,
+    required this.value,
     required this.onChanged,
   });
 
   final String label;
-  final bool? value;
+  final bool value;
   final ValueChanged<bool> onChanged;
 
   @override
@@ -17,13 +17,7 @@ class CustomSwitchListTile extends StatefulWidget {
 }
 
 class _CustomSwitchListTileState extends State<CustomSwitchListTile> {
-  late bool _value;
-
-  @override
-  void initState() {
-    super.initState();
-    _value = widget.value ?? false;
-  }
+  late bool _value = widget.value;
 
   @override
   Widget build(BuildContext context) {

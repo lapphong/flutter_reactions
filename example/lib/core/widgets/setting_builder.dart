@@ -1,7 +1,7 @@
 import 'package:example/core/core.dart';
 import 'package:flutter/material.dart';
 
-enum SettingBuilder { debug, example2 }
+enum SettingBuilder { debug, example2, alignment }
 
 extension SettingBuilderExt on SettingBuilder {
   String get label {
@@ -10,6 +10,8 @@ extension SettingBuilderExt on SettingBuilder {
         return 'debug';
       case SettingBuilder.example2:
         return 'Visible example 2';
+      case SettingBuilder.alignment:
+        return 'Alignment';
     }
   }
 
@@ -18,6 +20,12 @@ extension SettingBuilderExt on SettingBuilder {
     required ValueChanged<ValueSettingsBuilder> onChanged,
   }) {
     switch (this) {
+      case SettingBuilder.alignment:
+        return CustomListAlignment(
+          label: label,
+          value: value.$1,
+          onChanged: (e) => onChanged.call((e, value.$2, value.$3)),
+        );
       case SettingBuilder.debug:
         return CustomSwitchListTile(
           label: label,

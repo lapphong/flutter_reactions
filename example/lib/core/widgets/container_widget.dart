@@ -5,12 +5,14 @@ class ContainerWidget extends StatelessWidget {
   final BoxType type;
   final bool isSettings;
   final bool isMedium;
+  final EdgeInsetsGeometry padding;
   final VoidCallback? onTap;
   final Widget child;
 
   const ContainerWidget({
     super.key,
     this.onTap,
+    this.padding = EdgeInsets.zero,
     required this.type,
     required this.isSettings,
     required this.isMedium,
@@ -24,6 +26,7 @@ class ContainerWidget extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: AnimatedContainer(
+          padding: padding,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOutCubic,
           margin: type.getMargin(context, isMedium, isSettings),

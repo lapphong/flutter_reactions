@@ -22,7 +22,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Flutter Reaction Page')),
-      backgroundColor: Colors.grey.withValues(alpha: 0.15),
       body: LayoutPage(
         value: _value.value,
         isSetting: _isSettings,

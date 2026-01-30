@@ -16,13 +16,7 @@ class SettingWidget extends StatefulWidget {
 }
 
 class _SettingWidgetState extends State<SettingWidget> {
-  late ValueSettingsBuilder _value;
-
-  @override
-  void initState() {
-    super.initState();
-    _value = widget.value;
-  }
+  late ValueSettingsBuilder _value = widget.value;
 
   @override
   Widget build(BuildContext context) {

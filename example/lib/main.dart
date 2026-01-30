@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xff1E90FF)),
+        scaffoldBackgroundColor: Colors.grey.withValues(alpha: 0.15),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.blue,
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),

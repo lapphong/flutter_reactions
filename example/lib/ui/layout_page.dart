@@ -36,6 +36,7 @@ class _LayoutPageState extends State<LayoutPage> {
               widget.onCloseSetting(false);
             }
           },
+          padding: EdgeInsetsGeometry.all(context.padding),
           type: BoxType.content,
           isSettings: _isSettings,
           isMedium: isMedium,
