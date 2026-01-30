@@ -29,7 +29,7 @@ extension SettingBuilderExt on SettingBuilder {
       case SettingBuilder.debug:
         return CustomSwitchListTile(
           label: label,
-          value: value.$2.debug!,
+          value: value.$2.debug,
           onChanged: (e) => onChanged.call((value.$1, value.$2.copyWith(debug: e), value.$3)),
         );
       case SettingBuilder.example2:

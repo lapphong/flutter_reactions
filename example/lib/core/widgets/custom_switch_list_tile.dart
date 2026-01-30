@@ -21,18 +21,21 @@ class _CustomSwitchListTileState extends State<CustomSwitchListTile> {
 
   @override
   Widget build(BuildContext context) {
-    return SwitchListTile(
-      contentPadding: EdgeInsets.all(10),
-      activeThumbColor: Colors.white,
-      activeTrackColor: Colors.blue,
-      title: Text(widget.label),
-      value: _value,
-      onChanged: (value) {
-        setState(() {
-          _value = value;
-          widget.onChanged(_value);
-        });
-      },
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: SwitchListTile(
+        contentPadding: EdgeInsets.all(5),
+        activeThumbColor: Colors.white,
+        activeTrackColor: Colors.blue,
+        title: Text(widget.label),
+        value: _value,
+        onChanged: (value) {
+          setState(() {
+            _value = value;
+            widget.onChanged(_value);
+          });
+        },
+      ),
     );
   }
 }

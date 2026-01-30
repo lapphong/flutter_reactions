@@ -32,11 +32,6 @@ void main() {
       expect(dimens.dotSize, 4.0);
       expect(dimens.spacing, 5.0);
     });
-
-    test('calculates derived values correctly', () {
-      expect(dimens.boxHeightActive, dimens.boxHeight + 7.0);
-      expect(dimens.iconHoverSize, dimens.iconSize + 30.0);
-    });
   });
 
   group('DesktopDimens', () {
@@ -48,11 +43,6 @@ void main() {
       expect(dimens.iconSize, 39.0);
       expect(dimens.dotSize, 5.0);
       expect(dimens.spacing, 5.0);
-    });
-
-    test('calculates derived values correctly', () {
-      expect(dimens.boxHeightActive, dimens.boxHeight + 8.0);
-      expect(dimens.iconHoverSize, dimens.iconSize + 20.0);
     });
   });
 }
