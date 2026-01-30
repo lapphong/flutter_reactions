@@ -64,7 +64,7 @@
 
 ```yaml
 dependencies:
-  flutter_reactions: ^1.0.5
+  flutter_reactions: ^1.0.6
 ```
 
 #### Then run:
