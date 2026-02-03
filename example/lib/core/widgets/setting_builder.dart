@@ -44,9 +44,7 @@ extension SettingBuilderExt on SettingBuilder {
         return CustomSlider(
           label: label,
           value: value.$4,
-          onChanged: (e) => onChanged.call(
-            value.copyWith(config: value.$2.adjustedScale(e), scale: e),
-          ),
+          onChanged: (e) => onChanged.call(value.copyWith(config: value.adjustedScale(e), scale: e)),
         );
     }
   }

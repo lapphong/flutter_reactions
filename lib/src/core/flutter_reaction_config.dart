@@ -33,21 +33,6 @@ class FlutterReactionConfig {
 
   double getBoxHeight(FlutterReactionType? value) => value != null ? boxHeightActive : boxHeight;
 
-  FlutterReactionConfig adjustedScale(double e) {
-    final temp = FlutterReactionConfig();
-    final iconSize = (temp.boxHeight * e) - 10.0;
-
-    return temp.copyWith(
-      boxWidth: temp.boxWidth * e,
-      boxHeight: temp.boxHeight * e,
-      boxDecoration: temp.boxDecoration.copyWith(borderRadius: BorderRadius.all(Radius.circular(iconSize))),
-      itemConfig: itemConfig.copyWith(
-        iconSize: iconSize,
-        dotSize: temp.itemConfig.dotSize * e,
-      ),
-    );
-  }
-
   FlutterReactionConfig copyWith({
     bool? debug,
     bool? autoClose,
