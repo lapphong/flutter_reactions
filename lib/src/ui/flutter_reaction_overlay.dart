@@ -25,7 +25,7 @@ extension FlutterReactionOverlayExt on BuildContext {
   ///
   /// An assertion error will be thrown if the key is missing or not mounted.
   void showReactionOverlay({
-    GlobalKey? key,
+    required GlobalKey key,
     FlutterReactionConfig? config,
     required FlutterReactionType? value,
     required ValueChanged<FlutterReactionType?> onChanged,
@@ -52,7 +52,7 @@ extension FlutterReactionOverlayExt on BuildContext {
 /// Internal anchor key for [FlutterReactionButton].
 ///
 /// Used automatically by the button when no [GlobalKey] is provided.
-final GlobalKey widgetKey = GlobalKey();
+// final GlobalKey widgetKey = GlobalKey();
 
 /// Internal key for the reaction box widget.
 ///
@@ -86,14 +86,14 @@ class FlutterReactionOverlay {
   /// attached to the widget tree.
   static void showOverlay(
     BuildContext context, {
-    GlobalKey? key,
+    required GlobalKey key,
     FlutterReactionConfig? config,
     required FlutterReactionType? value,
     required ValueChanged<FlutterReactionType?> onChanged,
   }) async {
     if (_overlayEntry != null) return;
 
-    final targetKey = key ?? widgetKey;
+    final targetKey = key; // ?? widgetKey;
     assert(
       targetKey.currentContext != null,
       'GlobalKey is required. '

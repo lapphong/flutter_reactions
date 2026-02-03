@@ -42,6 +42,8 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
 
   ValueChanged<FlutterReactionType?> get onChanged => widget.onChanged;
 
+  final GlobalKey widgetKey = GlobalKey();
+
   @override
   Rect get widgetRect => widgetKey.currentContext!.getRenderObjectInfo.$1;
 
@@ -54,6 +56,7 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
   @override
   void showReactionOverlay() {
     context.showReactionOverlay(
+      key: widgetKey,
       config: widget.config,
       value: flutterReactionType,
       onChanged: onChanged,

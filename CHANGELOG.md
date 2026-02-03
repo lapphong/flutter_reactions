@@ -1,3 +1,7 @@
+## 1.8.0
+
+- Add support for multiple reaction button
+
 ## 1.0.7
 
 - Fix example layout issues by replacing width-based configuration with scale-based settings
