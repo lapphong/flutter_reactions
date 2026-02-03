@@ -1,4 +1,4 @@
-## 1.8.0
+## 1.0.8
 
 - Add support for multiple reaction button
 
