@@ -38,18 +38,22 @@ class _SettingWidgetState extends State<SettingWidget> {
         ),
         Expanded(
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                ...SettingBuilder.values.map((e) {
-                  return e.build(
-                    value: _value,
-                    onChanged: (e) {
-                      setState(() => _value = e);
-                      widget.onChanged(_value);
-                    },
-                  );
-                }),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Column(
+                children: [
+                  ...SettingBuilder.values.map((e) {
+                    return e.build(
+                      context,
+                      value: _value,
+                      onChanged: (e) {
+                        setState(() => _value = e);
+                        widget.onChanged(_value);
+                      },
+                    );
+                  }),
+                ],
+              ),
             ),
           ),
         ),

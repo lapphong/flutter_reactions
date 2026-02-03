@@ -1,6 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 extension BuildContextExt on BuildContext {
+  bool get isMobile => defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS;
+
   Size get screenSize => MediaQuery.of(this).size;
 
   double get width => screenSize.width;

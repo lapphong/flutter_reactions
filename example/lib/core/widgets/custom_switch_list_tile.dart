@@ -22,7 +22,7 @@ class _CustomSwitchListTileState extends State<CustomSwitchListTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      padding: const EdgeInsets.only(top: 10.0),
       child: SwitchListTile(
         contentPadding: EdgeInsets.all(5),
         activeThumbColor: Colors.white,
