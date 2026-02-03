@@ -6,13 +6,9 @@ class CustomSlider extends StatefulWidget {
     required this.label,
     required this.value,
     required this.onChanged,
-    required this.min,
-    required this.max,
   });
 
   final String label;
-  final double min;
-  final double max;
   final double value;
   final ValueChanged<double> onChanged;
 
@@ -37,22 +33,19 @@ class _CustomSliderState extends State<CustomSlider> {
               child: Slider(
                 activeColor: Colors.blue,
                 inactiveColor: Colors.grey.shade400,
-                min: widget.min,
-                max: widget.max,
-                label: _value.round().toString(),
+                min: 0.5,
+                max: 2.0,
+                label: _value.toStringAsFixed(1),
                 value: _value,
                 onChanged: (value) {
+                  final rounded = double.parse(value.toStringAsFixed(2));
                   setState(() {
-                    _value = value;
-                    widget.onChanged(_value);
+                    _value = rounded;
+                    widget.onChanged(rounded);
                   });
                 },
               ),
             ),
-          ),
-          Text(
-            _value.round().toString(),
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),
           ),
         ],
       ),

@@ -39,12 +39,11 @@ class _SettingWidgetState extends State<SettingWidget> {
         Expanded(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0).copyWith(bottom: 50),
               child: Column(
                 children: [
                   ...SettingBuilder.values.map((e) {
                     return e.build(
-                      context,
                       value: _value,
                       onChanged: (e) {
                         setState(() => _value = e);

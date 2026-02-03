@@ -4,10 +4,15 @@ import 'package:flutter_reactions/flutter_reactions.dart';
 typedef FlutterReactionCustomBuilder =
     Widget Function(AlignmentGeometry alignment, FlutterReactionConfig config, bool visibleExample2);
 
-typedef ValueSettingsBuilder = (AlignmentGeometry, FlutterReactionConfig, bool);
+typedef ValueSettingsBuilder = (AlignmentGeometry, FlutterReactionConfig, bool, double);
 
-extension ValueExt on ValueNotifier<ValueSettingsBuilder> {
-  void updateValue(ValueSettingsBuilder e) {
-    value = (e.$1, e.$2, e.$3);
+extension ValueSettingsCopy on ValueSettingsBuilder {
+  ValueSettingsBuilder copyWith({
+    AlignmentGeometry? alignment,
+    FlutterReactionConfig? config,
+    bool? visible,
+    double? scale,
+  }) {
+    return (alignment ?? $1, config ?? $2, visible ?? $3, scale ?? $4);
   }
 }

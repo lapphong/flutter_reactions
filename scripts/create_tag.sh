@@ -2,7 +2,7 @@
 
 # v.[version]
 # TAG_NAME=v1.0.3
-VERSION=1.0.6
+VERSION=1.0.7
 TAG_NAME="v"$VERSION
 
 git tag $TAG_NAME
