@@ -19,19 +19,19 @@ class CustomListAlignment extends StatefulWidget {
 class _CustomListAlignmentState extends State<CustomListAlignment> {
   late AlignmentGeometry _value = widget.value;
 
-  static const List<Alignment> _alignments = [
-    Alignment.topLeft,
-    Alignment.topRight,
-    Alignment.center,
-    Alignment.bottomLeft,
-    Alignment.bottomRight,
-  ];
+  static final Map<Alignment, String> _alignments = {
+    Alignment.center: 'Center',
+    Alignment.topLeft: 'Top Left',
+    Alignment.topRight: 'Top Right',
+    Alignment.bottomLeft: 'Bottom Left',
+    Alignment.bottomRight: 'Bottom Right',
+  };
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.symmetric(horizontal: 10).copyWith(top: 16, bottom: 10 ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -44,23 +44,20 @@ class _CustomListAlignmentState extends State<CustomListAlignment> {
               widget.onChanged(e!);
             },
             child: Wrap(
-              spacing: 40,
+              spacing: 20,
               runSpacing: 8,
-              children: _alignments.map((e) {
+              children: _alignments.entries.map((e) {
                 return InkWell(
                   onTap: () {
-                    setState(() => _value = e);
-                    widget.onChanged(e);
+                    setState(() => _value = e.key);
+                    widget.onChanged(e.key);
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Radio<AlignmentGeometry>(value: e, activeColor: Colors.blue),
-                        Text(e.toString().split('.').last),
-                      ],
-                    ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Radio<AlignmentGeometry>(value: e.key, activeColor: Colors.blue),
+                      Text(e.value),
+                    ],
                   ),
                 );
               }).toList(),

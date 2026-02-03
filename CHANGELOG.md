@@ -1,3 +1,8 @@
+## 1.0.7
+
+- Fix example layout issues by replacing width-based configuration with scale-based settings
+- Refactor example settings to use scale-based values
+
 ## 1.0.6
 
 - Update example with settings widgets

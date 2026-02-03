@@ -5,7 +5,7 @@ import '../ui/flutter_reaction_builder.dart';
 import 'app_constants.dart';
 
 class FlutterReactionConfig {
-  final bool? debug;
+  final bool debug;
   final double boxWidth;
   final double boxHeight;
   final BoxDecoration boxDecoration;
@@ -29,10 +29,28 @@ class FlutterReactionConfig {
         boxPadding = boxPadding ?? EdgeInsets.all(AppConstants.dimens.spacing),
         itemConfig = itemConfig ?? FlutterReactionItemConfig();
 
-  double getBoxHeight(FlutterReactionType? value) => value != null ? AppConstants.dimens.boxHeightActive : boxHeight;
+  double get boxHeightActive => boxHeight + (AppConstants.isMobile ? 7.0 : 8.0);
+
+  double getBoxHeight(FlutterReactionType? value) => value != null ? boxHeightActive : boxHeight;
+
+  FlutterReactionConfig adjustedScale(double e) {
+    final temp = FlutterReactionConfig();
+    final iconSize = (temp.boxHeight * e) - 10.0;
+
+    return temp.copyWith(
+      boxWidth: temp.boxWidth * e,
+      boxHeight: temp.boxHeight * e,
+      boxDecoration: temp.boxDecoration.copyWith(borderRadius: BorderRadius.all(Radius.circular(iconSize))),
+      itemConfig: itemConfig.copyWith(
+        iconSize: iconSize,
+        dotSize: temp.itemConfig.dotSize * e,
+      ),
+    );
+  }
 
   FlutterReactionConfig copyWith({
     bool? debug,
+    bool? autoClose,
     double? boxWidth,
     double? boxHeight,
     BoxDecoration? boxDecoration,
@@ -68,7 +86,7 @@ class FlutterReactionItemConfig {
   })  : iconSize = iconSize ?? AppConstants.dimens.iconSize,
         dotSize = dotSize ?? AppConstants.dimens.dotSize;
 
-  double get iconHoverSize => AppConstants.dimens.iconHoverSize;
+  double get iconHoverSize => iconSize + (AppConstants.isMobile ? 30.0 : 20.0);
 
   FlutterReactionItemConfig copyWith({
     double? iconSize,

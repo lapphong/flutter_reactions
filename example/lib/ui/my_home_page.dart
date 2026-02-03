@@ -16,7 +16,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var _isSettings = false;
 
-  final _value = ValueNotifier<ValueSettingsBuilder>((Alignment.center, FlutterReactionConfig(), false));
+  final _value = ValueNotifier<ValueSettingsBuilder>((Alignment.center, FlutterReactionConfig(), false, 1.0));
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
         value: _value.value,
         isSetting: _isSettings,
         onCloseSetting: (value) => setState(() => _isSettings = value!),
-        onChanged: (value) => _value.updateValue(value),
+        onChanged: (e) => _value.value = e,
         child: ValueListenableBuilder(
           valueListenable: _value,
           builder: (context, value, child) {

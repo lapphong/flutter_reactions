@@ -20,34 +20,43 @@ class _SettingWidgetState extends State<SettingWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          CustomBoxWidget(
-            width: double.infinity,
-            color: Colors.blue,
-            borderRadius: BorderRadius.only(topLeft: context.radius, topRight: context.radius),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Center(
-                child: Text(
-                  'Config',
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),
-                ),
+    return Column(
+      children: [
+        CustomBoxWidget(
+          width: double.infinity,
+          color: Colors.blue,
+          borderRadius: BorderRadius.only(topLeft: context.radius, topRight: context.radius),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Center(
+              child: Text(
+                'Config',
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),
               ),
             ),
           ),
-          ...SettingBuilder.values.map((e) {
-            return e.build(
-              value: _value,
-              onChanged: (e) {
-                setState(() => _value = e);
-                widget.onChanged(_value);
-              },
-            );
-          }),
-        ],
-      ),
+        ),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0).copyWith(bottom: 50),
+              child: Column(
+                children: [
+                  ...SettingBuilder.values.map((e) {
+                    return e.build(
+                      value: _value,
+                      onChanged: (e) {
+                        setState(() => _value = e);
+                        widget.onChanged(_value);
+                      },
+                    );
+                  }),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

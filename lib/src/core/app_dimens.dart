@@ -3,9 +3,7 @@ import 'app_constants.dart';
 abstract final class AppDimens {
   double get boxWidth;
   double get boxHeight;
-  double get boxHeightActive;
   double get iconSize;
-  double get iconHoverSize;
   double get dotSize;
   double get spacing;
 
@@ -31,12 +29,6 @@ final class MobileDimens implements AppDimens {
 
   @override
   double get spacing => 5.0;
-
-  @override
-  double get boxHeightActive => boxHeight + 7.0;
-
-  @override
-  double get iconHoverSize => iconSize + 30.0;
 }
 
 final class DesktopDimens implements AppDimens {
@@ -56,10 +48,4 @@ final class DesktopDimens implements AppDimens {
 
   @override
   double get spacing => 5.0;
-
-  @override
-  double get boxHeightActive => boxHeight + 8.0;
-
-  @override
-  double get iconHoverSize => iconSize + 20.0;
 }
