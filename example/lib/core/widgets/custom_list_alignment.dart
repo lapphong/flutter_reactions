@@ -31,7 +31,7 @@ class _CustomListAlignmentState extends State<CustomListAlignment> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 10).copyWith(top: 16, bottom: 10 ),
+      margin: EdgeInsets.symmetric(horizontal: 10).copyWith(top: 16, bottom: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
