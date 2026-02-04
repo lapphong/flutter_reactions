@@ -49,12 +49,7 @@ extension FlutterReactionOverlayExt on BuildContext {
   }
 }
 
-/// Internal anchor key for [FlutterReactionButton].
-///
-/// Used automatically by the button when no [GlobalKey] is provided.
-// final GlobalKey widgetKey = GlobalKey();
-
-/// Internal key for the reaction box widget.
+/// Internal key for the for [FlutterReactionsBox] widget.
 ///
 /// Used internally for layout and interaction handling.
 final GlobalKey boxKey = GlobalKey();
@@ -93,7 +88,7 @@ class FlutterReactionOverlay {
   }) async {
     if (_overlayEntry != null) return;
 
-    final targetKey = key; // ?? widgetKey;
+    final targetKey = key;
     assert(
       targetKey.currentContext != null,
       'GlobalKey is required. '

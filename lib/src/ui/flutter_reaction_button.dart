@@ -42,10 +42,10 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
 
   ValueChanged<FlutterReactionType?> get onChanged => widget.onChanged;
 
-  final GlobalKey widgetKey = GlobalKey();
+  final GlobalKey globalKey = GlobalKey();
 
   @override
-  Rect get widgetRect => widgetKey.currentContext!.getRenderObjectInfo.$1;
+  Rect get widgetRect => globalKey.currentContext!.getRenderObjectInfo.$1;
 
   @override
   void dispose() {
@@ -56,7 +56,7 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
   @override
   void showReactionOverlay() {
     context.showReactionOverlay(
-      key: widgetKey,
+      key: globalKey,
       config: widget.config,
       value: flutterReactionType,
       onChanged: onChanged,
@@ -75,7 +75,7 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
         onExit: onExit,
         child: GestureDetector(
           behavior: HitTestBehavior.opaque,
-          key: widgetKey,
+          key: globalKey,
           onLongPressStart: (details) {
             showReactionOverlay();
             onPointerDown(PointerDownEvent(position: details.globalPosition));

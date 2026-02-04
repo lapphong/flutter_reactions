@@ -21,9 +21,8 @@ class _CustomSliderState extends State<CustomSlider> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         children: [
           Text(widget.label, style: Theme.of(context).textTheme.bodyLarge),
