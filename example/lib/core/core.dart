@@ -3,6 +3,7 @@ export 'extensions/value_ext.dart';
 export 'widgets/box_builder.dart';
 export 'widgets/container_widget.dart';
 export 'widgets/custom_box_widget.dart';
+export 'widgets/custom_code_snippet.dart';
 export 'widgets/custom_list_alignment.dart';
 export 'widgets/custom_slider.dart';
 export 'widgets/custom_switch_list_tile.dart';
