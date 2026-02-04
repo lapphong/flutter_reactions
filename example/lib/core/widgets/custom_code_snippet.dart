@@ -17,14 +17,6 @@ class CustomCodeSnippet extends StatefulWidget {
 
 class _CustomCodeSnippetState extends State<CustomCodeSnippet> {
   @override
-  void didUpdateWidget(covariant CustomCodeSnippet oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.message != oldWidget.message) {
-      setState(() {});
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 12.0),

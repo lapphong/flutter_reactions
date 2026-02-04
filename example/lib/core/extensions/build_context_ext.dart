@@ -8,8 +8,6 @@ extension BuildContextExt on BuildContext {
 
   double get height => screenSize.height;
 
-  double get safeTop => MediaQuery.of(this).padding.top;
-
   double get padding => 15;
 
   Radius get radius => Radius.circular(30);
