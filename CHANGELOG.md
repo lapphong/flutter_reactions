@@ -1,3 +1,8 @@
+## 1.0.9
+
+- Add config code snippets to demo
+- Fix audio player reuse after dispose in reaction overlay
+
 ## 1.0.8
 
 - Add support for multiple reaction button

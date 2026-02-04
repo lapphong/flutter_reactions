@@ -1,7 +1,7 @@
 import 'package:example/core/core.dart';
 import 'package:flutter/material.dart';
 
-enum SettingBuilder { debug, example2, alignment, scale }
+enum SettingBuilder { debug, example2, alignment, scale, snippet }
 
 extension SettingBuilderExt on SettingBuilder {
   String get label {
@@ -14,6 +14,8 @@ extension SettingBuilderExt on SettingBuilder {
         return 'Alignment';
       case SettingBuilder.scale:
         return 'scale';
+      case SettingBuilder.snippet:
+        return 'Code Snippet';
     }
   }
 
@@ -45,6 +47,11 @@ extension SettingBuilderExt on SettingBuilder {
           label: label,
           value: value.$4,
           onChanged: (e) => onChanged.call(value.copyWith(config: value.adjustedScale(e), scale: e)),
+        );
+      case SettingBuilder.snippet:
+        return CustomCodeSnippet(
+          label: label,
+          message: value.toCodeSnippet(),
         );
     }
   }

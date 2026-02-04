@@ -8,7 +8,7 @@ import 'widgets/widgets.dart';
 
 extension FlutterReactionOverlayExt on BuildContext {
   /// Returns the shared audio player used by the reaction overlay.
-  AudioPlayer get _player => FlutterReactionOverlay._player;
+  AudioPlayer get _player => FlutterReactionOverlay.player;
 
   void playAudio(String asset) async {
     try {
@@ -49,12 +49,7 @@ extension FlutterReactionOverlayExt on BuildContext {
   }
 }
 
-/// Internal anchor key for [FlutterReactionButton].
-///
-/// Used automatically by the button when no [GlobalKey] is provided.
-// final GlobalKey widgetKey = GlobalKey();
-
-/// Internal key for the reaction box widget.
+/// Internal key for the for [FlutterReactionsBox] widget.
 ///
 /// Used internally for layout and interaction handling.
 final GlobalKey boxKey = GlobalKey();
@@ -68,7 +63,15 @@ final List<GlobalKey<FlutterReactionItemWidgetState>> itemKeys =
 
 class FlutterReactionOverlay {
   /// Shared audio player.
-  static final _player = AudioPlayer()..audioCache = AudioCache(prefix: 'packages/flutter_reactions/');
+  static AudioPlayer? _player;
+
+  /// Returns the shared audio [_player].
+  ///
+  /// Lazily initialized and recreated after [dispose].
+  static AudioPlayer get player {
+    _player ??= AudioPlayer()..audioCache = AudioCache(prefix: 'packages/flutter_reactions/');
+    return _player!;
+  }
 
   /// Default configuration.
   static final defaultConfig = FlutterReactionConfig();
@@ -93,7 +96,7 @@ class FlutterReactionOverlay {
   }) async {
     if (_overlayEntry != null) return;
 
-    final targetKey = key; // ?? widgetKey;
+    final targetKey = key;
     assert(
       targetKey.currentContext != null,
       'GlobalKey is required. '
@@ -127,7 +130,7 @@ class FlutterReactionOverlay {
   /// Removes the reaction overlay if it is currently displayed.
   static void hideOverlay({bool playAudio = false}) async {
     if (playAudio) {
-      await _player.play(AssetSource(AudioConstants.audioSoundBoxDown));
+      await player.play(AssetSource(AudioConstants.audioSoundBoxDown));
     }
     _overlayEntry?.remove();
     _overlayEntry = null;
@@ -135,6 +138,7 @@ class FlutterReactionOverlay {
 
   static void dispose() async {
     hideOverlay();
-    await _player.dispose();
+    await player.dispose();
+    _player = null;
   }
 }

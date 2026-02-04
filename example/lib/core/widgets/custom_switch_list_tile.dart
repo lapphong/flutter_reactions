@@ -24,7 +24,7 @@ class _CustomSwitchListTileState extends State<CustomSwitchListTile> {
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
       child: SwitchListTile(
-        contentPadding: EdgeInsets.all(5),
+        contentPadding: EdgeInsets.symmetric(vertical: 5),
         activeThumbColor: Colors.white,
         activeTrackColor: Colors.blue,
         title: Text(widget.label),

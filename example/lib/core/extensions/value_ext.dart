@@ -31,22 +31,22 @@ extension ValueSettingsCopy on ValueSettingsBuilder {
     );
   }
 
-  String toCodeSnippet(FlutterReactionConfig config) {
-    final radius = (config.boxDecoration.borderRadius as BorderRadius).topLeft.x;
-    final color = config.boxDecoration.color!.toARGB32().toRadixString(16);
-    final item = config.itemConfig;
+  String toCodeSnippet() {
+    final radius = ($2.boxDecoration.borderRadius as BorderRadius).topLeft.x.toStringAsFixed(1);
+    final color = $2.boxDecoration.color!.toARGB32().toRadixString(16);
+    final item = $2.itemConfig;
 
     return 'FlutterReactionConfig(\n'
-        '  debug: ${config.debug},\n'
-        '  boxWidth: ${config.boxWidth},\n'
-        '  boxHeight: ${config.boxHeight},\n'
+        '  debug: ${$2.debug},\n'
+        '  boxWidth: ${$2.boxWidth.toStringAsFixed(1)},\n'
+        '  boxHeight: ${$2.boxHeight.toStringAsFixed(1)},\n'
         '  boxDecoration: BoxDecoration(\n'
         '    borderRadius: BorderRadius.all(Radius.circular($radius)),\n'
         '    color: const Color(0x$color),\n'
         '  ),\n'
         '  itemConfig: FlutterReactionItemConfig(\n'
-        '    iconSize: ${item.iconSize},\n'
-        '    dotSize: ${item.dotSize},\n'
+        '    iconSize: ${item.iconSize.toStringAsFixed(1)},\n'
+        '    dotSize: ${item.dotSize.toStringAsFixed(1)},\n'
         '  ),\n'
         '),';
   }
