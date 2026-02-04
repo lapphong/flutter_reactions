@@ -24,9 +24,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(title: const Text('Flutter Reaction Page')),
       body: LayoutPage(
         value: _value.value,
+        onChanged: (e) => _value.value = e,
         isSetting: _isSettings,
         onCloseSetting: (value) => setState(() => _isSettings = value!),
-        onChanged: (e) => _value.value = e,
         child: ValueListenableBuilder(
           valueListenable: _value,
           builder: (context, value, child) {
