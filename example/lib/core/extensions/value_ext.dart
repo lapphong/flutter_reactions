@@ -21,6 +21,7 @@ extension ValueSettingsCopy on ValueSettingsBuilder {
     final iconSize = (temp.boxHeight * e) - 10.0;
 
     return temp.copyWith(
+      debug: $2.debug,
       boxWidth: temp.boxWidth * e,
       boxHeight: temp.boxHeight * e,
       boxDecoration: temp.boxDecoration.copyWith(borderRadius: BorderRadius.all(Radius.circular(iconSize))),
