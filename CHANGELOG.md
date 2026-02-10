@@ -1,3 +1,7 @@
+## 1.1.0
+- Stable release
+- Update README.md with latest features and examples
+
 ## 1.0.9
 
 - Add config code snippets to demo
