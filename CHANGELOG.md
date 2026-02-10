@@ -1,3 +1,7 @@
+## 1.1.1
+- Implement localization support (Hindi, Russian)
+- Update build workflows
+
 ## 1.1.0
 - Stable release
 - Update README.md with latest features and examples
