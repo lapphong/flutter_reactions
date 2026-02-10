@@ -26,29 +26,12 @@ jobs:
       - name: Validate release tag
         run: make tags
 
-      - name: Cache Flutter SDK
-        uses: actions/cache@v4
-        with:
-          path: /opt/hostedtoolcache/flutter
-          key: flutter-3.38.5-linux
-          restore-keys: |
-            flutter-3.38.5
-            flutter-  
-
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.38.5'
-          cache: false
-
-      - name: Cache Pub
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.pub-cache
-          key: pub-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            pub-
+          cache: true
+          cache-key: flutter-${{ runner.os }}-3.38.5
 
       - name: Install dependencies
         run: flutter pub get
