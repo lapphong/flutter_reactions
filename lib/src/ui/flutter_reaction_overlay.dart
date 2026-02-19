@@ -44,6 +44,9 @@ extension FlutterReactionOverlayExt on BuildContext {
   ///
   /// This method should be called when the reaction overlay is no longer used.
   /// Calling any overlay-related method after this may result in errors.
+  ///
+  /// IMPORTANT: Call this in parent widget dispose().
+  /// Do NOT call inside FlutterReactionButton or item widgets.
   void dispose() {
     FlutterReactionOverlay.dispose();
   }
@@ -129,6 +132,7 @@ class FlutterReactionOverlay {
 
   /// Removes the reaction overlay if it is currently displayed.
   static void hideOverlay({bool playAudio = false}) async {
+    if (_overlayEntry == null) return;
     if (playAudio) {
       await player.play(AssetSource(AudioConstants.audioSoundBoxDown));
     }
@@ -136,6 +140,16 @@ class FlutterReactionOverlay {
     _overlayEntry = null;
   }
 
+  /// Dispose overlay and shared audio player.
+  ///
+  /// IMPORTANT:
+  /// Call this method only from the parent widget (for example,
+  /// in the dispose() of your page or screen).
+  ///
+  /// Do NOT call this inside FlutterReactionButton or reaction item widgets,
+  /// because the overlay and audio player are shared resources.
+  /// Calling it in child widgets may stop audio, break overlay,
+  /// or cause unexpected errors.
   static void dispose() async {
     hideOverlay();
     await player.dispose();

@@ -1,3 +1,8 @@
+## 1.1.2
+
+- Fix audio disposal bug when multiple reaction items are used
+- Add ListView example with proper shared resource disposal
+
 ## 1.1.1
 - Implement localization support (Hindi, Russian)
 - Update build workflows

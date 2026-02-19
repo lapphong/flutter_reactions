@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# v.[version]
-# TAG_NAME=v1.0.3
-VERSION=1.1.1
+VERSION=1.1.2
 TAG_NAME="v"$VERSION
 
 git tag $TAG_NAME
