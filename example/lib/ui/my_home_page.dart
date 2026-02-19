@@ -1,4 +1,5 @@
 import 'package:example/ui/layout_page.dart';
+import 'package:example/ui/next_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_reactions/flutter_reactions.dart';
 
@@ -21,7 +22,18 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter Reaction Page')),
+      appBar: AppBar(
+        title: const Text('Flutter Reaction Page'),
+        actionsPadding: EdgeInsets.symmetric(horizontal: 12.0),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => NextPage())),
+            icon: context.width > 400
+                ? Text('Go to NextPage', style: TextStyle(color: Colors.white))
+                : Icon(Icons.list_alt_outlined),
+          ),
+        ],
+      ),
       body: LayoutPage(
         value: _value.value,
         onChanged: (e) => _value.value = e,

@@ -48,12 +48,6 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
   Rect get widgetRect => globalKey.currentContext!.getRenderObjectInfo.$1;
 
   @override
-  void dispose() {
-    context.dispose();
-    super.dispose();
-  }
-
-  @override
   void showReactionOverlay() {
     context.showReactionOverlay(
       key: globalKey,
