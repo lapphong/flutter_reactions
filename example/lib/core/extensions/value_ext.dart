@@ -2,18 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_reactions/flutter_reactions.dart';
 
 typedef FlutterReactionCustomBuilder =
-    Widget Function(AlignmentGeometry alignment, FlutterReactionConfig config, bool visibleExample2);
+    Widget Function(
+      AlignmentGeometry alignment,
+      FlutterReactionConfig config,
+      bool visibleExample2,
+      double triggerIconSize,
+    );
 
-typedef ValueSettingsBuilder = (AlignmentGeometry, FlutterReactionConfig, bool, double);
+typedef ValueSettingsBuilder = (AlignmentGeometry, FlutterReactionConfig, bool, double, double);
 
 extension ValueSettingsCopy on ValueSettingsBuilder {
   ValueSettingsBuilder copyWith({
     AlignmentGeometry? alignment,
     FlutterReactionConfig? config,
     bool? visible,
+    double? triggerIconSize,
     double? scale,
   }) {
-    return (alignment ?? $1, config ?? $2, visible ?? $3, scale ?? $4);
+    return (alignment ?? $1, config ?? $2, visible ?? $3, triggerIconSize ?? $4, scale ?? $5);
   }
 
   FlutterReactionConfig adjustedScale(double e) {

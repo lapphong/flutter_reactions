@@ -6,11 +6,15 @@ class CustomSlider extends StatefulWidget {
     required this.label,
     required this.value,
     required this.onChanged,
+    this.min = 0.5,
+    this.max = 2.0,
   });
 
   final String label;
   final double value;
   final ValueChanged<double> onChanged;
+  final double min;
+  final double max;
 
   @override
   State<CustomSlider> createState() => _CustomSliderState();
@@ -32,8 +36,8 @@ class _CustomSliderState extends State<CustomSlider> {
               child: Slider(
                 activeColor: Colors.blue,
                 inactiveColor: Colors.grey.shade400,
-                min: 0.5,
-                max: 2.0,
+                min: widget.min,
+                max: widget.max,
                 label: _value.toStringAsFixed(1),
                 value: _value,
                 onChanged: (value) {

@@ -17,7 +17,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var _isSettings = false;
 
-  final _value = ValueNotifier<ValueSettingsBuilder>((Alignment.center, FlutterReactionConfig(), false, 1.0));
+  final _value = ValueNotifier<ValueSettingsBuilder>((Alignment.center, FlutterReactionConfig(), false, 22, 1.0));
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ValueListenableBuilder(
           valueListenable: _value,
           builder: (context, value, child) {
-            return widget.builder(value.$1, value.$2, value.$3);
+            return widget.builder(value.$1, value.$2, value.$3, value.$4);
           },
         ),
       ),

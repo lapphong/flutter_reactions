@@ -106,6 +106,7 @@ FlutterReactionButton(
 | `config`              | Configuration for the reactions ovelay.                             | ❌       | `FlutterReactionConfig()` |
 | `hasLabel`            | Whether to display the reaction label next to the icon.             | ❌       | true          |
 | `child`               | Custom widget to wrap with reaction interactions.                   | ❌       | -             |
+| `triggerIconSize`     | Size of the default trigger icon when no reaction is selected.      | ❌       | 22            |
 
 ---
 

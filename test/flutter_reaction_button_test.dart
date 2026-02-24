@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_reactions/flutter_reactions.dart';
 import 'package:flutter_reactions/src/core/core.dart';
 import 'package:flutter_reactions/src/ui/flutter_reaction_box.dart';
@@ -18,6 +19,36 @@ void main() {
 
   tearDown(() {
     debugDefaultTargetPlatformOverride = null;
+  });
+
+  group('FlutterReactionButton - triggerIconSize', () {
+    testWidgets('uses default triggerIconSize of 22', (tester) async {
+      await tester.pumpWidget(wrap());
+
+      final icon = tester.widget<Icon>(find.byIcon(Icons.thumb_up_alt_rounded));
+      expect(icon.size, 22);
+    });
+
+    testWidgets('applies custom triggerIconSize', (tester) async {
+      await tester.pumpWidget(wrap(triggerIconSize: 32));
+
+      final icon = tester.widget<Icon>(find.byIcon(Icons.thumb_up_alt_rounded));
+      expect(icon.size, 32);
+    });
+
+    testWidgets('triggerIconSize does not affect selected reaction icon', (tester) async {
+      await tester.pumpWidget(wrap(triggerIconSize: 32));
+
+      // Tap to select LIKE reaction
+      await tester.tap(find.byType(FlutterReactionButton));
+      await tester.pump(const Duration(milliseconds: 300));
+
+      final state = tester.state<WrapWidgetState>(find.byType(WrapWidget));
+      expect(state.flutterReactionType, FlutterReactionType.like);
+
+      // The default thumb_up icon should no longer be present
+      expect(find.byIcon(Icons.thumb_up_alt_rounded), findsNothing);
+    });
   });
 
   group('FlutterReactionButton - basic interactions', () {

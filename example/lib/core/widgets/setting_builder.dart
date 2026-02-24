@@ -1,7 +1,7 @@
 import 'package:example/core/core.dart';
 import 'package:flutter/material.dart';
 
-enum SettingBuilder { debug, example2, alignment, scale, snippet }
+enum SettingBuilder { debug, example2, alignment, scale, triggerIconSize, snippet }
 
 extension SettingBuilderExt on SettingBuilder {
   String get label {
@@ -14,6 +14,8 @@ extension SettingBuilderExt on SettingBuilder {
         return 'Alignment';
       case SettingBuilder.scale:
         return 'scale';
+      case SettingBuilder.triggerIconSize:
+        return 'Trigger icon size';
       case SettingBuilder.snippet:
         return 'Code Snippet';
     }
@@ -45,8 +47,16 @@ extension SettingBuilderExt on SettingBuilder {
       case SettingBuilder.scale:
         return CustomSlider(
           label: label,
-          value: value.$4,
+          value: value.$5,
           onChanged: (e) => onChanged.call(value.copyWith(config: value.adjustedScale(e), scale: e)),
+        );
+      case SettingBuilder.triggerIconSize:
+        return CustomSlider(
+          label: label,
+          value: value.$4,
+          min: 14,
+          max: 40,
+          onChanged: (e) => onChanged.call(value.copyWith(triggerIconSize: e)),
         );
       case SettingBuilder.snippet:
         return CustomCodeSnippet(

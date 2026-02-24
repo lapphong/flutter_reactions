@@ -28,13 +28,13 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: MyHomePage(
-        builder: (alignment, config, visibleExample2) {
+        builder: (alignment, config, visibleExample2, triggerIconSize) {
           return Align(
             alignment: alignment,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Example1(config: config),
+                Example1(config: config, triggerIconSize: triggerIconSize),
                 if (visibleExample2) SizedBox(height: context.height / 4.5),
                 Offstage(offstage: !visibleExample2, child: Example2()),
               ],
@@ -48,8 +48,9 @@ class MyApp extends StatelessWidget {
 
 class Example1 extends StatefulWidget {
   final FlutterReactionConfig config;
+  final double triggerIconSize;
 
-  const Example1({super.key, required this.config});
+  const Example1({super.key, required this.config, required this.triggerIconSize});
 
   @override
   State<Example1> createState() => _Example1State();
@@ -62,6 +63,7 @@ class _Example1State extends State<Example1> {
   Widget build(BuildContext context) {
     return FlutterReactionButton(
       config: widget.config,
+      triggerIconSize: widget.triggerIconSize,
       value: flutterReactionType,
       onChanged: (value) {
         setState(() {
