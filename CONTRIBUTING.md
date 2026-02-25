@@ -51,7 +51,7 @@ If you are fixing a small bug, you can open a PR directly, but an issue is still
 7. Add tests if needed
 8. Write a clear commit message
 9. Push to your fork
-10. Create a Pull Request
+10. Create a Pull Request targeting `dev` branch
 
 After you submit a PR, please wait for review before making more changes unless requested.
 
