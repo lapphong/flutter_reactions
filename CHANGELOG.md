@@ -1,3 +1,8 @@
+## 1.1.3
+- Add CONTRIBUTING.md
+- Upgrade packages
+- Change icon rendering
+
 ## 1.1.2
 
 - Fix audio disposal bug when multiple reaction items are used
