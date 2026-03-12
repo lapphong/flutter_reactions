@@ -34,8 +34,10 @@ class MyApp extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Example1(config: config),
-                if (visibleExample2) SizedBox(height: context.height / 4.5),
-                Offstage(offstage: !visibleExample2, child: Example2()),
+                if (visibleExample2) ...[
+                  SizedBox(height: context.height / 4.5),
+                  Example2(),
+                ],
               ],
             ),
           );
@@ -137,7 +139,7 @@ class _Example2State extends State<Example2> {
         //   onChanged: (value) {},
         // );
       },
-      icon: flutterReactionType != null ? flutterReactionType!.imageBuild() : Icon(Icons.home),
+      icon: flutterReactionType != null ? flutterReactionType!.buildImage() : Icon(Icons.home),
     );
   }
 }

@@ -99,7 +99,7 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
         mainAxisSize: MainAxisSize.min,
         children: [
           flutterReactionType != null
-              ? flutterReactionType!.imageBuild()
+              ? flutterReactionType!.buildImage()
               : (widget.child ?? const Icon(Icons.thumb_up_alt_rounded, color: Colors.grey)),
           if (flutterReactionType != null && widget.hasLabel)
             Padding(
