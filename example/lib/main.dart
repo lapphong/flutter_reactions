@@ -137,7 +137,7 @@ class _Example2State extends State<Example2> {
         //   onChanged: (value) {},
         // );
       },
-      icon: flutterReactionType != null ? flutterReactionType!.imageBuild() : Icon(Icons.home),
+      icon: flutterReactionType != null ? flutterReactionType!.buildImage() : Icon(Icons.home),
     );
   }
 }
