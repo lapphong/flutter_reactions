@@ -13,6 +13,9 @@ mixin FlutterReactionMixin<T extends StatefulWidget> on State<T> {
   bool _allow = true;
 
   late Rect widgetRect;
+  late FlutterReactionConfig? config;
+
+  List<FlutterReactionItemKey> get itemKeys => defaultItemKeys.take(config!.reactions.length).toList();
 
   Rect get boxRect => boxKey.currentContext!.getRenderObjectInfo.$1;
 
@@ -39,14 +42,14 @@ mixin FlutterReactionMixin<T extends StatefulWidget> on State<T> {
 
   void onTap({required ValueChanged<FlutterReactionType?> onChanged}) {
     _handleReactionTap(
-      reaction: FlutterReactionType.like,
+      reaction: config!.reactions.contains(FlutterReactionType.like) ? FlutterReactionType.like : config!.reactions[0],
       onChanged: onChanged,
     );
   }
 
   void onDoubleTap({required ValueChanged<FlutterReactionType?> onChanged}) {
     _handleReactionTap(
-      reaction: FlutterReactionType.love,
+      reaction: config!.reactions.contains(FlutterReactionType.love) ? FlutterReactionType.love : config!.reactions[1],
       onChanged: onChanged,
     );
   }
@@ -174,7 +177,7 @@ mixin FlutterReactionMixin<T extends StatefulWidget> on State<T> {
     }
 
     // Dragging and a reaction item is selected
-    final value = FlutterReactionType.values[_focusIndex!];
+    final value = config!.reactions[_focusIndex!];
     context.playAudio(AudioConstants.audioPick);
     onChanged(value);
     await Future.delayed(const Duration(milliseconds: 100));

@@ -5,13 +5,13 @@ import 'flutter_reaction_builder.dart';
 import 'flutter_reaction_overlay.dart';
 
 class FlutterReactionListener extends StatefulWidget {
-  final bool? debug;
+  final FlutterReactionConfig config;
   final GlobalKey targetKey;
   final ValueChanged<FlutterReactionType?> onChanged;
 
   const FlutterReactionListener({
     super.key,
-    this.debug,
+    required this.config,
     required this.targetKey,
     required this.onChanged,
   });
@@ -23,6 +23,9 @@ class FlutterReactionListener extends StatefulWidget {
 class _FlutterReactionListenerState extends State<FlutterReactionListener> with FlutterReactionMixin {
   @override
   Rect get widgetRect => widget.targetKey.currentContext!.getRenderObjectInfo.$1;
+
+  @override
+  FlutterReactionConfig? get config => widget.config;
 
   // DEBUG
   Rect? _boxRect;
@@ -56,7 +59,7 @@ class _FlutterReactionListenerState extends State<FlutterReactionListener> with 
     return Stack(
       children: [
         child,
-        if (_boxRect != null && widget.debug == true)
+        if (_boxRect != null && config!.debug == true)
           _ReactionDragAreaDebug(boxRect: _boxRect!), // coverage:ignore-line
       ],
     );
