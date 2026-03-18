@@ -42,7 +42,7 @@ class _FlutterReactionsBoxState extends State<FlutterReactionsBox> {
     return Stack(
       children: [
         FlutterReactionListener(
-          debug: config.debug,
+          config: config,
           targetKey: targetAnchor.key,
           onChanged: widget.onChanged,
         ),
@@ -65,15 +65,15 @@ class _FlutterReactionsBoxState extends State<FlutterReactionsBox> {
                 height: config.getBoxHeight(_flutterReactionType) + AppConstants.dimens.spacing,
                 padding: config.boxPadding,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: FlutterReactionType.values.mapIndexed(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: config.reactions.mapIndexed(
                     (e, index) {
                       final isActive = _flutterReactionType == e;
 
                       return AnimatedSlide(
                         delay: Duration(milliseconds: 50 * index),
                         child: FlutterReactionItemWidget(
-                          key: itemKeys[index],
+                          key: defaultItemKeys[index],
                           type: e,
                           itemConfig: config.itemConfig,
                           isActive: isActive,

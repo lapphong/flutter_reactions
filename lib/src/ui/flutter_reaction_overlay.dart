@@ -61,8 +61,9 @@ final GlobalKey boxKey = GlobalKey();
 ///
 /// These keys are used internally to manage focus, hover, and drag interactions
 /// for each reaction item inside the reaction box.
-final List<GlobalKey<FlutterReactionItemWidgetState>> itemKeys =
-    FlutterReactionType.values.map((e) => GlobalKey<FlutterReactionItemWidgetState>()).toList();
+typedef FlutterReactionItemKey = GlobalKey<FlutterReactionItemWidgetState>;
+final List<FlutterReactionItemKey> defaultItemKeys =
+    FlutterReactionType.values.map((e) => FlutterReactionItemKey()).toList();
 
 class FlutterReactionOverlay {
   /// Shared audio player.
@@ -110,6 +111,7 @@ class FlutterReactionOverlay {
     await FlutterReactionTranslations.load();
 
     final cf = config ?? defaultConfig;
+    assert(cf.reactions.length >= 2, 'FlutterReactionConfig.reactions must contain at least 2 items.');
     final offset = context.calculateReactionBoxPosition(
       key: targetKey,
       overlaySize: Size(cf.boxWidth, cf.getBoxHeight(value)),
