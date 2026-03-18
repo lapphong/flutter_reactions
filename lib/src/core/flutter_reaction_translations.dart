@@ -7,6 +7,7 @@ class FlutterReactionTranslations {
   static final Map<String, Map<String, String>> cache = {};
 
   static Future<void> load() async {
+    if (cache.isNotEmpty) return;
     final locale = PlatformDispatcher.instance.locale;
     final code = locale.languageCode;
 

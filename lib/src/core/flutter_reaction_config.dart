@@ -35,7 +35,6 @@ class FlutterReactionConfig {
 
   FlutterReactionConfig copyWith({
     bool? debug,
-    bool? autoClose,
     double? boxWidth,
     double? boxHeight,
     BoxDecoration? boxDecoration,
