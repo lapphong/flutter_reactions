@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=1.1.3
+VERSION=1.2.0
 TAG_NAME="v"$VERSION
 
 git tag $TAG_NAME

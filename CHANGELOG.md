@@ -1,3 +1,6 @@
+## 1.2.0
+- Add support for custom reaction items in dialog
+
 ## 1.1.3
 - Add CONTRIBUTING.md
 - Upgrade packages
