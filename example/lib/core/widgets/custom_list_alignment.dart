@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomListAlignment extends StatefulWidget {
@@ -31,7 +32,7 @@ class _CustomListAlignmentState extends State<CustomListAlignment> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: 16, bottom: 10),
+      margin: EdgeInsets.only(top: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -53,9 +54,10 @@ class _CustomListAlignmentState extends State<CustomListAlignment> {
                     widget.onChanged(e.key);
                   },
                   child: Row(
+                    spacing: 8.0,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Radio<AlignmentGeometry>(value: e.key, activeColor: Colors.blue),
+                      CupertinoRadio<AlignmentGeometry>(value: e.key, activeColor: Colors.blue),
                       Text(e.value),
                     ],
                   ),
