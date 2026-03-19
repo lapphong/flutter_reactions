@@ -45,8 +45,8 @@ class _CustomListAlignmentState extends State<CustomListAlignment> {
               widget.onChanged(e!);
             },
             child: Wrap(
-              spacing: 20,
-              runSpacing: 8,
+              spacing: 30.0,
+              runSpacing: 12.0,
               children: _alignments.entries.map((e) {
                 return InkWell(
                   onTap: () {

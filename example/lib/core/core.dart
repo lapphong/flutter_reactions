@@ -7,5 +7,6 @@ export 'widgets/custom_code_snippet.dart';
 export 'widgets/custom_list_alignment.dart';
 export 'widgets/custom_slider.dart';
 export 'widgets/custom_switch_list_tile.dart';
+export 'widgets/custom_visible_reactions.dart';
 export 'widgets/setting_builder.dart';
 export 'widgets/setting_widget.dart';
