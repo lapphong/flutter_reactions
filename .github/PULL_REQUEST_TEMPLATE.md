@@ -21,6 +21,7 @@ Remove this section if not applicable.
 ## Checklist
 - [ ] ✨ New feature
 - [ ] 🛠️ Bug fix
+- [ ] 📖 Add/Change Example
 - [ ] 🧹 Code refactor
 - [ ] 🧪 Tests added/updated
 - [ ] ✅ Build configuration change
