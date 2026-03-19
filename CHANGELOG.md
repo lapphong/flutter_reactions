@@ -1,3 +1,6 @@
+## 1.2.1
+- Add example for custom reaction items in dialog
+
 ## 1.2.0
 - Add support for custom reaction items in dialog
 
