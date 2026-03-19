@@ -22,6 +22,7 @@ extension ValueSettingsCopy on ValueSettingsBuilder {
 
     return temp.copyWith(
       debug: $2.debug,
+      reactions: $2.reactions,
       boxWidth: temp.boxWidth * e,
       boxHeight: temp.boxHeight * e,
       boxDecoration: temp.boxDecoration.copyWith(borderRadius: BorderRadius.all(Radius.circular(iconSize))),
@@ -37,18 +38,30 @@ extension ValueSettingsCopy on ValueSettingsBuilder {
     final color = $2.boxDecoration.color!.toARGB32().toRadixString(16);
     final item = $2.itemConfig;
 
+    String reactionsSnippet = '';
+    if ($2.reactions.length != FlutterReactionType.values.length) {
+      final buffer = StringBuffer();
+      buffer.writeln('     reactions: [');
+      for (final r in $2.reactions) {
+        buffer.writeln('          FlutterReactionType.${r.name},');
+      }
+      buffer.writeln('     ],');
+      reactionsSnippet = buffer.toString();
+    }
+
     return 'FlutterReactionConfig(\n'
-        '  debug: ${$2.debug},\n'
-        '  boxWidth: ${$2.boxWidth.toStringAsFixed(1)},\n'
-        '  boxHeight: ${$2.boxHeight.toStringAsFixed(1)},\n'
-        '  boxDecoration: BoxDecoration(\n'
-        '    borderRadius: BorderRadius.all(Radius.circular($radius)),\n'
-        '    color: const Color(0x$color),\n'
-        '  ),\n'
-        '  itemConfig: FlutterReactionItemConfig(\n'
-        '    iconSize: ${item.iconSize.toStringAsFixed(1)},\n'
-        '    dotSize: ${item.dotSize.toStringAsFixed(1)},\n'
-        '  ),\n'
+        '     debug: ${$2.debug},\n'
+        '$reactionsSnippet'
+        '     boxWidth: ${$2.boxWidth.toStringAsFixed(1)},\n'
+        '     boxHeight: ${$2.boxHeight.toStringAsFixed(1)},\n'
+        '     boxDecoration: BoxDecoration(\n'
+        '          borderRadius: BorderRadius.all(Radius.circular($radius)),\n'
+        '          color: const Color(0x$color),\n'
+        '     ),\n'
+        '     itemConfig: FlutterReactionItemConfig(\n'
+        '          iconSize: ${item.iconSize.toStringAsFixed(1)},\n'
+        '          dotSize: ${item.dotSize.toStringAsFixed(1)},\n'
+        '     ),\n'
         '),';
   }
 }
