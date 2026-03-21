@@ -80,11 +80,12 @@ class _CustomVisibleReactionsState extends State<CustomVisibleReactions> {
             ),
             Wrap(
               spacing: 20.0,
+              runSpacing: 20.0,
               children: FlutterReactionType.values.map((type) {
                 final isSelected = _selected.contains(type);
 
                 return _CustomCheckBox(
-                  label: type.name,
+                  type: type,
                   value: isSelected,
                   onChanged: (_) => _toggle(type),
                 );
@@ -100,12 +101,12 @@ class _CustomVisibleReactionsState extends State<CustomVisibleReactions> {
 class _CustomCheckBox extends StatelessWidget {
   const _CustomCheckBox({
     super.key,
-    required this.label,
+    required this.type,
     required this.value,
     required this.onChanged,
   });
 
-  final String label;
+  final FlutterReactionType type;
   final bool value;
   final ValueChanged<bool> onChanged;
 
@@ -114,13 +115,20 @@ class _CustomCheckBox extends StatelessWidget {
     return InkWell(
       onTap: () => onChanged(!value),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(5.0),
         child: Row(
-          spacing: 8.0,
           mainAxisSize: MainAxisSize.min,
           children: [
-            CupertinoCheckbox(value: value, onChanged: (v) => onChanged(v!)),
-            Text(label),
+            CupertinoCheckbox(
+              value: value,
+              onChanged: (v) => onChanged(v!),
+              tapTargetSize: Size.square(32),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 5.0),
+              child: type.buildGif(),
+            ),
+            Text(type.label),
           ],
         ),
       ),

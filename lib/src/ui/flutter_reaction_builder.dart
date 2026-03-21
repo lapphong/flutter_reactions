@@ -56,7 +56,7 @@ extension FlutterReactionTypeExt on FlutterReactionType {
     return Image.asset(assetPath, width: iconSize, height: iconSize, package: 'flutter_reactions');
   }
 
-  Widget buildGif({required double iconSize}) {
+  Widget buildGif({double iconSize = 24.0}) {
     final String assetPath = switch (this) {
       FlutterReactionType.like => GifConstants.like,
       FlutterReactionType.love => GifConstants.love,
