@@ -89,7 +89,7 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
           },
           onTap: () => onTap(onChanged: onChanged),
           onDoubleTap: () => onDoubleTap(onChanged: onChanged),
-          child: _buildReactionWidget(),
+          child: widget.child ?? _buildReactionWidget(),
         ),
       ),
     );
@@ -102,8 +102,8 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
         mainAxisSize: MainAxisSize.min,
         children: [
           flutterReactionType != null
-              ? flutterReactionType!.buildImage()
-              : (widget.child ?? const Icon(Icons.thumb_up_alt_rounded, color: Colors.grey)),
+              ? flutterReactionType!.buildDisplay(config!.display)
+              : const Icon(Icons.thumb_up_alt_rounded, color: Colors.grey),
           if (flutterReactionType != null && widget.hasLabel)
             Padding(
               padding: const EdgeInsets.only(left: AppConstants.spacing),
