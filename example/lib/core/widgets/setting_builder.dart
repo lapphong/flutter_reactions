@@ -11,11 +11,11 @@ extension SettingBuilderExt on SettingBuilder {
       case SettingBuilder.example2:
         return 'Visible example 2';
       case SettingBuilder.alignment:
-        return 'Alignment';
+        return 'Alignment:';
       case SettingBuilder.scale:
         return 'scale';
       case SettingBuilder.visibleReactions:
-        return 'Visible reactions';
+        return 'Visible reactions:';
       case SettingBuilder.snippet:
         return 'Code Snippet';
     }

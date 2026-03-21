@@ -1,5 +1,6 @@
 import 'package:example/ui/layout_page.dart';
 import 'package:example/ui/next_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_reactions/flutter_reactions.dart';
 
@@ -26,9 +27,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('Flutter Reaction Page'),
         actionsPadding: EdgeInsets.symmetric(horizontal: 12.0),
         actions: [
-          IconButton(
+          CupertinoButton(
+            sizeStyle: .small,
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => NextPage())),
-            icon: context.width > 400
+            child: context.width > 400
                 ? Text('Go to NextPage', style: TextStyle(color: Colors.white))
                 : Icon(Icons.list_alt_outlined),
           ),

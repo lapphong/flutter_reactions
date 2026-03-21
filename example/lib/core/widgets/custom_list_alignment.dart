@@ -48,18 +48,21 @@ class _CustomListAlignmentState extends State<CustomListAlignment> {
               spacing: 30.0,
               runSpacing: 12.0,
               children: _alignments.entries.map((e) {
-                return InkWell(
-                  onTap: () {
-                    setState(() => _value = e.key);
-                    widget.onChanged(e.key);
-                  },
-                  child: Row(
-                    spacing: 8.0,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      CupertinoRadio<AlignmentGeometry>(value: e.key, activeColor: Colors.blue),
-                      Text(e.value),
-                    ],
+                return Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: InkWell(
+                    onTap: () {
+                      setState(() => _value = e.key);
+                      widget.onChanged(e.key);
+                    },
+                    child: Row(
+                      spacing: 8.0,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        CupertinoRadio<AlignmentGeometry>(value: e.key, activeColor: Colors.blue),
+                        Text(e.value),
+                      ],
+                    ),
                   ),
                 );
               }).toList(),
