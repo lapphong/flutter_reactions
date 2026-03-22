@@ -48,14 +48,14 @@ class _CustomVisibleReactionsState extends State<CustomVisibleReactions> {
 
     return Tooltip(
       message: _selected.length <= 2 ? 'Select at least 2 items' : '',
-      margin: EdgeInsets.only(top: 25),
+      margin: EdgeInsets.only(top: 25.0),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         color: Colors.black.withValues(alpha: 0.5),
       ),
       child: Container(
         width: double.infinity,
-        margin: EdgeInsets.only(top: 12),
+        margin: EdgeInsets.only(top: 12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -122,7 +122,7 @@ class _CustomCheckBox extends StatelessWidget {
             CupertinoCheckbox(
               value: value,
               onChanged: (v) => onChanged(v!),
-              tapTargetSize: Size.square(32),
+              tapTargetSize: Size.square(32.0),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 5.0),

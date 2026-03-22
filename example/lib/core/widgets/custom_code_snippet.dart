@@ -19,11 +19,11 @@ class CustomCodeSnippet extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(label, style: Theme.of(context).textTheme.bodyLarge),
-          const SizedBox(height: 12),
+          const SizedBox(height: 12.0),
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(12)),
+              borderRadius: BorderRadius.all(Radius.circular(12.0)),
               border: Border.all(color: Colors.blue),
             ),
             child: Stack(
