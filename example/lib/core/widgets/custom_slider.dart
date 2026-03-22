@@ -23,7 +23,7 @@ class _CustomSliderState extends State<CustomSlider> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: 12),
+      margin: EdgeInsets.only(top: 12.0),
       child: Row(
         children: [
           Text(widget.label, style: Theme.of(context).textTheme.bodyLarge),

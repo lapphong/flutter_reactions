@@ -23,14 +23,13 @@ class _CustomDisplayReactionState extends State<CustomDisplayReaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.only(top: 16),
+    return Padding(
+      padding: EdgeInsets.only(top: 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(widget.label, style: Theme.of(context).textTheme.bodyLarge),
-          const SizedBox(height: 8),
+          const SizedBox(height: 8.0),
           RadioGroup<Display>(
             groupValue: _value,
             onChanged: (e) {
