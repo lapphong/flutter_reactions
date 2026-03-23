@@ -4,6 +4,9 @@ authors:
 publish:
 	sh scripts/publish.sh -f
 
+clean:
+	sh scripts/clean.sh -f
+
 format:
 	sh scripts/format.sh -f
 
