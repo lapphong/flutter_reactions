@@ -42,9 +42,10 @@ extension FlutterReactionTypeExt on FlutterReactionType {
     }
   }
 
-  Widget buildDisplay(Display display) => display == Display.gif ? buildGif() : buildImage();
+  Widget buildDisplay({Display display = Display.image, double? size = 24.0}) =>
+      display == Display.gif ? buildGif(iconSize: size!) : buildImage(iconSize: size);
 
-  Widget buildImage({double iconSize = 24.0}) {
+  Widget buildImage({double? iconSize = 24.0}) {
     final assetPath = switch (this) {
       FlutterReactionType.like => ImageConstants.like,
       FlutterReactionType.love => ImageConstants.love,
