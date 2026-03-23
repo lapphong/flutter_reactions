@@ -1,3 +1,6 @@
+## 1.2.3
+- Add `size` parameter for FlutterReactionButton
+
 ## 1.2.2
 - Add GIF support for custom reaction items in dialog config
 - Add display config (image/gif) support for FlutterReactionButton

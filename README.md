@@ -53,7 +53,7 @@
 
 ## ✨ Features
 - Fully handled reaction interactions with built-in gesture & pointer support
-- Localization **support** (**en, vi, fr, ja, zh, ko**)
+- Localization **support** (**en, vi, fr, ja, zh, ko, hi, ru**)
 - Smooth, customizable **animations**
 - Covered by unit and widget tests (100% coverage).
 
@@ -64,7 +64,7 @@
 
 ```yaml
 dependencies:
-  flutter_reactions: ^1.2.2
+  flutter_reactions: ^1.2.3
 ```
 
 #### Then run:
@@ -104,6 +104,7 @@ FlutterReactionButton(
 | `value`               | Current selected reaction type. Use `null` to indicate no reaction. | ✅       | -             |
 | `onChanged`           | Callback triggered when the reaction value changes.                 | ✅       | -             |
 | `config`              | Configuration for the reactions ovelay.                             | ❌       | `FlutterReactionConfig()` |
+| `size`                | The size of the reaction icon (in logical pixels).                  | ❌       | 24.0          |
 | `hasLabel`            | Whether to display the reaction label next to the icon.             | ❌       | true          |
 | `child`               | Custom widget to wrap with reaction interactions.                   | ❌       | -             |
 
