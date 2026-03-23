@@ -22,6 +22,7 @@ class FlutterReactionButton extends StatefulWidget {
     this.config,
     required this.value,
     required this.onChanged,
+    this.size = 24.0,
     this.hasLabel = true,
     this.child,
   });
@@ -29,6 +30,7 @@ class FlutterReactionButton extends StatefulWidget {
   final FlutterReactionConfig? config;
   final FlutterReactionType? value;
   final ValueChanged<FlutterReactionType?> onChanged;
+  final double? size;
   final bool hasLabel;
   final Widget? child;
 
@@ -102,8 +104,8 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
         mainAxisSize: MainAxisSize.min,
         children: [
           flutterReactionType != null
-              ? flutterReactionType!.buildDisplay(config!.display)
-              : const Icon(Icons.thumb_up_alt_rounded, color: Colors.grey),
+              ? flutterReactionType!.buildDisplay(display: config!.display, size: widget.size)
+              : Icon(Icons.thumb_up_alt_rounded, color: Colors.grey, size: widget.size),
           if (flutterReactionType != null && widget.hasLabel)
             Padding(
               padding: const EdgeInsets.only(left: AppConstants.spacing),
