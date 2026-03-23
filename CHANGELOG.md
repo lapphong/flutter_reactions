@@ -1,3 +1,6 @@
+## 1.2.4
+- Fallback to default icon when `child` is not provided
+
 ## 1.2.3
 - Add `size` parameter for FlutterReactionButton
 
