@@ -100,9 +100,8 @@ class FlutterReactionOverlay {
   }) async {
     if (_overlayEntry != null) return;
 
-    final targetKey = key;
     assert(
-      targetKey.currentContext != null,
+      key.currentContext != null,
       'GlobalKey is required. '
       'Attach it to the target widget, or pass it to context.showReactionOverlay(key: yourGlobalKey) '
       'when not using FlutterReactionButton, ',
@@ -113,7 +112,7 @@ class FlutterReactionOverlay {
     final cf = config ?? defaultConfig;
     assert(cf.reactions.length >= 2, 'FlutterReactionConfig.reactions must contain at least 2 items.');
     final offset = context.calculateReactionBoxPosition(
-      key: targetKey,
+      key: key,
       overlaySize: Size(cf.boxWidth, cf.getBoxHeight(value)),
     );
 
@@ -123,7 +122,7 @@ class FlutterReactionOverlay {
           config: cf,
           value: value,
           onChanged: onChanged,
-          targetAnchor: (key: targetKey, offset: offset),
+          targetAnchor: (key: key, offset: offset),
         );
       },
     );
