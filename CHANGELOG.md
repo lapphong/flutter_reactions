@@ -1,3 +1,6 @@
+## 1.2.5
+- Fix drag-to-select behavior when pointer moves outside bounds
+
 ## 1.2.4
 - Fallback to default icon when `child` is not provided
 
