@@ -15,3 +15,6 @@ jobs:
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
     with:
       environment: pub.dev
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
