@@ -128,6 +128,10 @@ mixin FlutterReactionMixin<T extends StatefulWidget> on State<T> {
 
     // Calculate focused item based on horizontal position
     final localX = position.dx - boxRect.left;
+    if (localX < 0 || localX > boxRect.width) {
+      _clearFocusItem();
+      return;
+    }
     final itemWidth = boxRect.width / itemKeys.length;
     final index = (localX ~/ itemWidth).clamp(0, itemKeys.length - 1);
 

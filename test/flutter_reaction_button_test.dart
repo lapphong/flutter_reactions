@@ -159,6 +159,9 @@ void main() {
       await gesture1.moveTo(center);
       await tester.pump(const Duration(milliseconds: 80));
     }
+    // Move outside horizontally → trigger _clearFocusItem()
+    await gesture1.moveBy(const Offset(-500, 0));
+    await tester.pump(const Duration(milliseconds: 80));
 
     // 3. Release on item index = 4 to select it
     final targetCenter1 = tester.getCenter(items.at(3));
