@@ -23,6 +23,7 @@ extension ValueSettingsCopy on ValueSettingsBuilder {
     return temp.copyWith(
       debug: $2.debug,
       reactions: $2.reactions,
+      display: $2.display,
       boxWidth: temp.boxWidth * e,
       boxHeight: temp.boxHeight * e,
       boxDecoration: temp.boxDecoration.copyWith(borderRadius: BorderRadius.all(Radius.circular(iconSize))),
