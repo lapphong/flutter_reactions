@@ -169,7 +169,7 @@ mixin FlutterReactionMixin<T extends StatefulWidget> on State<T> {
 
     // No dragging - tap outside closes overlay
     if (!_isDragging) {
-      if (autoClose) context.hideReactionOverlay(playAudio: true);
+      if (autoClose && mounted) context.hideReactionOverlay(playAudio: true);
       _resetDragState();
       return;
     }
