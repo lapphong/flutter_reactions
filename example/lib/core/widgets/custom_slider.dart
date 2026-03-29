@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomSlider extends StatefulWidget {
@@ -21,6 +22,8 @@ class _CustomSliderState extends State<CustomSlider> {
 
   @override
   Widget build(BuildContext context) {
+    final isDefault = _value == 1.0;
+
     return Container(
       width: double.infinity,
       margin: EdgeInsets.only(top: 12.0),
@@ -46,6 +49,19 @@ class _CustomSliderState extends State<CustomSlider> {
                 },
               ),
             ),
+          ),
+          CupertinoButton(
+            sizeStyle: CupertinoButtonSize.small,
+            foregroundColor: !isDefault ? Colors.blue : Colors.grey,
+            onPressed: isDefault
+                ? null
+                : () {
+                    setState(() {
+                      _value = 1.0;
+                      widget.onChanged(_value);
+                    });
+                  },
+            child: const Text('Reset'),
           ),
         ],
       ),
