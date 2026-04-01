@@ -7,7 +7,7 @@ rm -rf coverage/
 
 cd example/
 flutter clean
-rm -f build/
+rm -rf build/
 
 cd ..
 flutter pub get
