@@ -11,15 +11,15 @@ class CustomDisplayReaction extends StatefulWidget {
   });
 
   final String label;
-  final Display value;
-  final ValueChanged<Display> onChanged;
+  final DisplayMode value;
+  final ValueChanged<DisplayMode> onChanged;
 
   @override
   State<CustomDisplayReaction> createState() => _CustomDisplayReactionState();
 }
 
 class _CustomDisplayReactionState extends State<CustomDisplayReaction> {
-  late Display _value = widget.value;
+  late DisplayMode _value = widget.value;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class _CustomDisplayReactionState extends State<CustomDisplayReaction> {
         children: [
           Text(widget.label, style: Theme.of(context).textTheme.bodyLarge),
           const SizedBox(height: 8.0),
-          RadioGroup<Display>(
+          RadioGroup<DisplayMode>(
             groupValue: _value,
             onChanged: (e) {
               setState(() => _value = e!);
@@ -38,7 +38,7 @@ class _CustomDisplayReactionState extends State<CustomDisplayReaction> {
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: Display.values.map((e) {
+              children: DisplayMode.values.map((e) {
                 return InkWell(
                   onTap: () {
                     setState(() => _value = e);
@@ -48,7 +48,7 @@ class _CustomDisplayReactionState extends State<CustomDisplayReaction> {
                     spacing: 8.0,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      CupertinoRadio<Display>(value: e, activeColor: Colors.blue),
+                      CupertinoRadio<DisplayMode>(value: e, activeColor: Colors.blue),
                       Text(e.name),
                     ],
                   ),

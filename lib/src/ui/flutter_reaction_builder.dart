@@ -42,8 +42,8 @@ extension FlutterReactionTypeExt on FlutterReactionType {
     }
   }
 
-  Widget buildDisplay({Display display = Display.image, double? size = 24.0}) =>
-      display == Display.gif ? buildGif(iconSize: size!) : buildImage(iconSize: size);
+  Widget buildDisplay({DisplayMode mode = DisplayMode.image, double? size = 24.0}) =>
+      mode == DisplayMode.gif ? buildGif(iconSize: size!) : buildImage(iconSize: size);
 
   Widget buildImage({double? iconSize = 24.0}) {
     final assetPath = switch (this) {

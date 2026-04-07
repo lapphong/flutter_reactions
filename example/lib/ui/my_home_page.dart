@@ -30,9 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
           CupertinoButton(
             sizeStyle: .small,
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => NextPage())),
-            child: context.width > 400
-                ? Text('Go to NextPage', style: TextStyle(color: Colors.white))
-                : Icon(Icons.list_alt_outlined),
+            child: Text('Go to NextPage', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
