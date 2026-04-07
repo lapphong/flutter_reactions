@@ -64,7 +64,7 @@
 
 ```yaml
 dependencies:
-  flutter_reactions: ^1.2.5
+  flutter_reactions: ^1.3.0
 ```
 
 #### Then run:
@@ -105,6 +105,7 @@ FlutterReactionButton(
 | `onChanged`           | Callback triggered when the reaction value changes.                 | ✅       | -             |
 | `config`              | Configuration for the reactions ovelay.                             | ❌       | `FlutterReactionConfig()` |
 | `size`                | The size of the reaction icon (in logical pixels).                  | ❌       | 24.0          |
+| `mode`                | Display type of the reaction on the button (image/gif).             | ❌       | `DisplayMode.image` |
 | `hasLabel`            | Whether to display the reaction label next to the icon.             | ❌       | true          |
 | `child`               | Custom widget to wrap with reaction interactions.                   | ❌       | -             |
 

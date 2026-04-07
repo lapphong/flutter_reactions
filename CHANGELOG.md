@@ -1,3 +1,6 @@
+## 1.3.0
+- Add `DisplayMode` support for reaction rendering (image, gif) in `FlutterReactionButton`
+
 ## 1.2.5
 - Fix drag-to-select behavior when pointer moves outside bounds
 
