@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import '../ui/flutter_reaction_builder.dart';
 import 'app_constants.dart';
 
-enum Display { image, gif }
+enum DisplayMode { image, gif }
 
 class FlutterReactionConfig {
   final bool debug;
   final List<FlutterReactionType> reactions;
-  final Display display;
+  // final DisplayMode display;
   final double boxWidth;
   final double boxHeight;
   final BoxDecoration boxDecoration;
@@ -19,14 +19,14 @@ class FlutterReactionConfig {
   FlutterReactionConfig({
     this.debug = false,
     List<FlutterReactionType>? reactions,
-    Display? display,
+    // DisplayMode? display,
     double? boxWidth,
     double? boxHeight,
     BoxDecoration? boxDecoration,
     EdgeInsetsGeometry? boxPadding,
     FlutterReactionItemConfig? itemConfig,
   })  : reactions = reactions ?? FlutterReactionType.values,
-        display = display ?? Display.image,
+        // display = display ?? DisplayMode.image,
         boxWidth = boxWidth ?? AppConstants.dimens.boxWidth,
         boxHeight = boxHeight ?? AppConstants.dimens.boxHeight,
         boxDecoration = boxDecoration ??
@@ -44,7 +44,7 @@ class FlutterReactionConfig {
   FlutterReactionConfig copyWith({
     bool? debug,
     List<FlutterReactionType>? reactions,
-    Display? display,
+    // DisplayMode? display,
     double? boxWidth,
     double? boxHeight,
     BoxDecoration? boxDecoration,
@@ -53,8 +53,8 @@ class FlutterReactionConfig {
   }) {
     return FlutterReactionConfig(
       debug: debug ?? this.debug,
-      display: display ?? this.display,
       reactions: reactions ?? this.reactions,
+      // display: display ?? this.display,
       boxWidth: boxWidth ?? this.boxWidth,
       boxHeight: boxHeight ?? this.boxHeight,
       boxDecoration: boxDecoration ?? this.boxDecoration,
