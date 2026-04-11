@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 enum SettingBuilder {
   debug,
   example2,
-  // displayReaction,
   alignment,
   scale,
+  displayReactions,
   visibleReactions,
   snippet,
 }
@@ -18,12 +18,12 @@ extension SettingBuilderExt on SettingBuilder {
         return 'debug';
       case SettingBuilder.example2:
         return 'Visible example 2';
-      // case SettingBuilder.displayReaction:
-      //   return 'Display reaction';
       case SettingBuilder.alignment:
         return 'Alignment:';
       case SettingBuilder.scale:
         return 'scale';
+      case SettingBuilder.displayReactions:
+        return 'Display reactions:';
       case SettingBuilder.visibleReactions:
         return 'Visible reactions:';
       case SettingBuilder.snippet:
@@ -54,17 +54,21 @@ extension SettingBuilderExt on SettingBuilder {
           value: value.$3,
           onChanged: (e) => onChanged.call(value.copyWith(visible: e)),
         );
-      // case SettingBuilder.displayReaction:
-      //   return CustomDisplayReaction(
-      //     label: label,
-      //     value: value.$2.display,
-      //     onChanged: (e) => onChanged.call(value.copyWith(config: value.$2.copyWith(display: e))),
-      //   );
       case SettingBuilder.scale:
         return CustomSlider(
           label: label,
           value: value.$4,
           onChanged: (e) => onChanged.call(value.copyWith(config: value.adjustedScale(e), scale: e)),
+        );
+      case SettingBuilder.displayReactions:
+        return CustomDisplayReaction(
+          label: label,
+          value: value.$2.itemConfig.iconMode,
+          onChanged: (e) => onChanged.call(
+            value.copyWith(
+              config: value.$2.copyWith(itemConfig: value.$2.itemConfig.copyWith(iconMode: e)),
+            ),
+          ),
         );
       case SettingBuilder.visibleReactions:
         return CustomVisibleReactions(

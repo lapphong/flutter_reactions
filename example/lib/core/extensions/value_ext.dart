@@ -23,12 +23,12 @@ extension ValueSettingsCopy on ValueSettingsBuilder {
     return temp.copyWith(
       debug: $2.debug,
       reactions: $2.reactions,
-      // display: $2.display,
       boxWidth: temp.boxWidth * e,
       boxHeight: temp.boxHeight * e,
       boxDecoration: temp.boxDecoration.copyWith(borderRadius: BorderRadius.all(Radius.circular(iconSize))),
       itemConfig: temp.itemConfig.copyWith(
         iconSize: iconSize,
+        iconMode: $2.itemConfig.iconMode,
         dotSize: temp.itemConfig.dotSize * e,
       ),
     );
@@ -39,10 +39,10 @@ extension ValueSettingsCopy on ValueSettingsBuilder {
     final color = $2.boxDecoration.color!.toARGB32().toRadixString(16);
     final item = $2.itemConfig;
 
-    // String displaySnippet = '';
-    // if ($2.display != DisplayMode.image) {
-    //   displaySnippet = "     display: Display.${$2.display.name},\n";
-    // }
+    String iconModeSnippet = '';
+    if ($2.itemConfig.iconMode != DisplayMode.gif) {
+      iconModeSnippet = "          iconMode: DisplayMode.${$2.itemConfig.iconMode.name},\n";
+    }
 
     String reactionsSnippet = '';
     if ($2.reactions.length != FlutterReactionType.values.length) {
@@ -57,7 +57,6 @@ extension ValueSettingsCopy on ValueSettingsBuilder {
 
     return 'FlutterReactionConfig(\n'
         '     debug: ${$2.debug},\n'
-        // '$displaySnippet'
         '$reactionsSnippet'
         '     boxWidth: ${$2.boxWidth.toStringAsFixed(1)},\n'
         '     boxHeight: ${$2.boxHeight.toStringAsFixed(1)},\n'
@@ -67,6 +66,7 @@ extension ValueSettingsCopy on ValueSettingsBuilder {
         '     ),\n'
         '     itemConfig: FlutterReactionItemConfig(\n'
         '          iconSize: ${item.iconSize.toStringAsFixed(1)},\n'
+        '$iconModeSnippet'
         '          dotSize: ${item.dotSize.toStringAsFixed(1)},\n'
         '     ),\n'
         '),';

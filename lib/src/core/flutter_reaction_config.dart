@@ -9,7 +9,6 @@ enum DisplayMode { image, gif }
 class FlutterReactionConfig {
   final bool debug;
   final List<FlutterReactionType> reactions;
-  // final DisplayMode display;
   final double boxWidth;
   final double boxHeight;
   final BoxDecoration boxDecoration;
@@ -19,14 +18,12 @@ class FlutterReactionConfig {
   FlutterReactionConfig({
     this.debug = false,
     List<FlutterReactionType>? reactions,
-    // DisplayMode? display,
     double? boxWidth,
     double? boxHeight,
     BoxDecoration? boxDecoration,
     EdgeInsetsGeometry? boxPadding,
     FlutterReactionItemConfig? itemConfig,
   })  : reactions = reactions ?? FlutterReactionType.values,
-        // display = display ?? DisplayMode.image,
         boxWidth = boxWidth ?? AppConstants.dimens.boxWidth,
         boxHeight = boxHeight ?? AppConstants.dimens.boxHeight,
         boxDecoration = boxDecoration ??
@@ -44,7 +41,6 @@ class FlutterReactionConfig {
   FlutterReactionConfig copyWith({
     bool? debug,
     List<FlutterReactionType>? reactions,
-    // DisplayMode? display,
     double? boxWidth,
     double? boxHeight,
     BoxDecoration? boxDecoration,
@@ -54,7 +50,6 @@ class FlutterReactionConfig {
     return FlutterReactionConfig(
       debug: debug ?? this.debug,
       reactions: reactions ?? this.reactions,
-      // display: display ?? this.display,
       boxWidth: boxWidth ?? this.boxWidth,
       boxHeight: boxHeight ?? this.boxHeight,
       boxDecoration: boxDecoration ?? this.boxDecoration,
@@ -66,6 +61,7 @@ class FlutterReactionConfig {
 
 class FlutterReactionItemConfig {
   final double iconSize;
+  final DisplayMode iconMode;
   final double iconPadding;
   final Curve scaleCurve;
   final Duration scaleDuration;
@@ -74,6 +70,7 @@ class FlutterReactionItemConfig {
 
   FlutterReactionItemConfig({
     double? iconSize,
+    this.iconMode = DisplayMode.gif,
     this.iconPadding = AppConstants.spacing * 3.0,
     this.scaleCurve = Curves.easeOut,
     this.scaleDuration = AppConstants.duration,
@@ -86,6 +83,7 @@ class FlutterReactionItemConfig {
 
   FlutterReactionItemConfig copyWith({
     double? iconSize,
+    DisplayMode? iconMode,
     double? iconPadding,
     Curve? scaleCurve,
     Duration? scaleDuration,
@@ -94,6 +92,7 @@ class FlutterReactionItemConfig {
   }) {
     return FlutterReactionItemConfig(
       iconSize: iconSize ?? this.iconSize,
+      iconMode: iconMode ?? this.iconMode,
       iconPadding: iconPadding ?? this.iconPadding,
       scaleCurve: scaleCurve ?? this.scaleCurve,
       scaleDuration: scaleDuration ?? this.scaleDuration,
