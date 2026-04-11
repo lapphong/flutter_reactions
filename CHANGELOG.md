@@ -1,3 +1,7 @@
+## 1.4.0
+- Add `DisplayMode` to `FlutterReactionItemConfig`
+- Update example to demonstrate image/GIF reaction display
+
 ## 1.3.0
 - Add `DisplayMode` support for reaction rendering (image, gif) in `FlutterReactionButton`
 
