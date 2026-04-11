@@ -61,6 +61,7 @@ class FlutterReactionConfig {
 
 class FlutterReactionItemConfig {
   final double iconSize;
+  final DisplayMode iconMode;
   final double iconPadding;
   final Curve scaleCurve;
   final Duration scaleDuration;
@@ -69,6 +70,7 @@ class FlutterReactionItemConfig {
 
   FlutterReactionItemConfig({
     double? iconSize,
+    this.iconMode = DisplayMode.gif,
     this.iconPadding = AppConstants.spacing * 3.0,
     this.scaleCurve = Curves.easeOut,
     this.scaleDuration = AppConstants.duration,
@@ -81,6 +83,7 @@ class FlutterReactionItemConfig {
 
   FlutterReactionItemConfig copyWith({
     double? iconSize,
+    DisplayMode? iconMode,
     double? iconPadding,
     Curve? scaleCurve,
     Duration? scaleDuration,
@@ -89,6 +92,7 @@ class FlutterReactionItemConfig {
   }) {
     return FlutterReactionItemConfig(
       iconSize: iconSize ?? this.iconSize,
+      iconMode: iconMode ?? this.iconMode,
       iconPadding: iconPadding ?? this.iconPadding,
       scaleCurve: scaleCurve ?? this.scaleCurve,
       scaleDuration: scaleDuration ?? this.scaleDuration,

@@ -114,7 +114,7 @@ class FlutterReactionItemWidgetState extends State<FlutterReactionItemWidget> wi
                   duration: const Duration(milliseconds: 100),
                   child: OverlayWidget(
                     overlayOpacity: _pressOverlayOpacity,
-                    child: e.buildGif(iconSize: config.iconSize),
+                    child: e.buildDisplay(mode: config.iconMode, size: config.iconSize),
                   ),
                 ),
               ),
