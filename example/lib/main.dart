@@ -10,8 +10,26 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void dispose() {
+    // IMPORTANT ⚠️: Call this in parent widget dispose(). Do NOT call inside FlutterReactionButton or item widgets.
+    // Dispose reaction overlay resources to avoid memory leaks.
+    // Check method details to ensure correct usage.
+    // You can either call context.dispose()
+    context.dispose();
+
+    // or use FlutterReactionOverlay.dispose() if using the context extension.
+    // FlutterReactionOverlay.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,17 +107,6 @@ class _Example2State extends State<Example2> {
   FlutterReactionType? flutterReactionType;
 
   final GlobalKey key = GlobalKey(); // IMPORTANT
-
-  @override
-  void dispose() {
-    // Dispose reaction overlay resources.
-    // You can either call FlutterReactionOverlay.dispose()
-    FlutterReactionOverlay.dispose();
-
-    // or use context.dispose() if using the context extension.
-    // context.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
