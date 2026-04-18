@@ -1,3 +1,6 @@
+## 1.4.1
+- Update example by moving reaction overlay disposal to `MyApp` to avoid memory leaks
+
 ## 1.4.0
 - Add `DisplayMode` to `FlutterReactionItemConfig`
 - Update example to demonstrate image/GIF reaction display

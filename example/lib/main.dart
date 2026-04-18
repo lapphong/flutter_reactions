@@ -20,7 +20,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void dispose() {
-    // IMPORTANT: Dispose reaction overlay resources to avoid memory leaks.
+    // IMPORTANT ⚠️: Call this in parent widget dispose(). Do NOT call inside FlutterReactionButton or item widgets.
+    // Dispose reaction overlay resources to avoid memory leaks.
     // Check method details to ensure correct usage.
     // You can either call context.dispose()
     context.dispose();
