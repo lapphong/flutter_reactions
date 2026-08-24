@@ -1,5 +1,6 @@
 library flutter_reactions;
 
+export 'src/core/animations/animation_state.dart' hide AnimationControllerState;
 export 'src/core/flutter_reaction_config.dart';
 export 'src/core/flutter_reaction_mixin.dart';
 export 'src/core/flutter_reaction_translations.dart';

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/flutter_reaction_builder.dart';
-import 'app_constants.dart';
+import 'core.dart';
 
 enum DisplayMode { image, gif }
 
@@ -11,6 +11,7 @@ class FlutterReactionConfig {
   final List<FlutterReactionType> reactions;
   final double boxWidth;
   final double boxHeight;
+  final Direction animationDirection;
   final BoxDecoration boxDecoration;
   final EdgeInsetsGeometry boxPadding;
   final FlutterReactionItemConfig itemConfig;
@@ -20,12 +21,14 @@ class FlutterReactionConfig {
     List<FlutterReactionType>? reactions,
     double? boxWidth,
     double? boxHeight,
+    Direction? animationDirection,
     BoxDecoration? boxDecoration,
     EdgeInsetsGeometry? boxPadding,
     FlutterReactionItemConfig? itemConfig,
   })  : reactions = reactions ?? FlutterReactionType.values,
         boxWidth = boxWidth ?? AppConstants.dimens.boxWidth,
         boxHeight = boxHeight ?? AppConstants.dimens.boxHeight,
+        animationDirection = animationDirection ?? Direction.bottom,
         boxDecoration = boxDecoration ??
             BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(AppConstants.dimens.iconSize)),
@@ -43,6 +46,7 @@ class FlutterReactionConfig {
     List<FlutterReactionType>? reactions,
     double? boxWidth,
     double? boxHeight,
+    Direction? animationDirection,
     BoxDecoration? boxDecoration,
     EdgeInsetsGeometry? boxPadding,
     FlutterReactionItemConfig? itemConfig,
@@ -52,6 +56,7 @@ class FlutterReactionConfig {
       reactions: reactions ?? this.reactions,
       boxWidth: boxWidth ?? this.boxWidth,
       boxHeight: boxHeight ?? this.boxHeight,
+      animationDirection: animationDirection ?? this.animationDirection,
       boxDecoration: boxDecoration ?? this.boxDecoration,
       boxPadding: boxPadding ?? this.boxPadding,
       itemConfig: itemConfig ?? this.itemConfig,

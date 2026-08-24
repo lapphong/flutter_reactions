@@ -53,6 +53,7 @@ class _FlutterReactionsBoxState extends State<FlutterReactionsBox> {
             key: boxKey,
             children: [
               AnimatedSlide(
+                direction: config.animationDirection,
                 child: Container(
                   width: config.boxWidth,
                   height: config.getBoxHeight(_flutterReactionType),
@@ -71,6 +72,7 @@ class _FlutterReactionsBoxState extends State<FlutterReactionsBox> {
                       final isActive = _flutterReactionType == e;
 
                       return AnimatedSlide(
+                        direction: config.animationDirection,
                         delay: Duration(milliseconds: 50 * index),
                         child: FlutterReactionItemWidget(
                           key: defaultItemKeys[index],

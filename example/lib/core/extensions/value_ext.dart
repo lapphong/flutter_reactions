@@ -55,11 +55,18 @@ extension ValueSettingsCopy on ValueSettingsBuilder {
       reactionsSnippet = buffer.toString();
     }
 
+    String animationDirectionSnippet = '';
+
+    if ($2.animationDirection != Direction.bottom) {
+      animationDirectionSnippet = '     animationDirection: Direction.${$2.animationDirection.name},\n';
+    }
+
     return 'FlutterReactionConfig(\n'
         '     debug: ${$2.debug},\n'
         '$reactionsSnippet'
         '     boxWidth: ${$2.boxWidth.toStringAsFixed(1)},\n'
         '     boxHeight: ${$2.boxHeight.toStringAsFixed(1)},\n'
+        '$animationDirectionSnippet'
         '     boxDecoration: BoxDecoration(\n'
         '          borderRadius: BorderRadius.all(Radius.circular($radius)),\n'
         '          color: const Color(0x$color),\n'
