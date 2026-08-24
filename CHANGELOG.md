@@ -1,3 +1,6 @@
+## 1.5.0
+- Added configurable `animationDirection` for reaction animations.
+
 ## 1.4.1
 - Update example by moving reaction overlay disposal to `MyApp` to avoid memory leaks
 
