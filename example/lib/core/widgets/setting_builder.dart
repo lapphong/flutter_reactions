@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 enum SettingBuilder {
   debug,
   example2,
+  animationDirection,
   alignment,
   scale,
   displayReactions,
@@ -18,6 +19,8 @@ extension SettingBuilderExt on SettingBuilder {
         return 'debug';
       case SettingBuilder.example2:
         return 'Visible example 2';
+      case SettingBuilder.animationDirection:
+        return 'Animation Direction:';
       case SettingBuilder.alignment:
         return 'Alignment:';
       case SettingBuilder.scale:
@@ -41,6 +44,12 @@ extension SettingBuilderExt on SettingBuilder {
           label: label,
           value: value.$1,
           onChanged: (e) => onChanged.call(value.copyWith(alignment: e)),
+        );
+      case SettingBuilder.animationDirection:
+        return CustomAnimationDirection(
+          label: label,
+          value: value.$2.animationDirection,
+          onChanged: (e) => onChanged.call(value.copyWith(config: value.$2.copyWith(animationDirection: e))),
         );
       case SettingBuilder.debug:
         return CustomSwitchListTile(
