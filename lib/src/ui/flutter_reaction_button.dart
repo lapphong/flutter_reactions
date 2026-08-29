@@ -40,7 +40,8 @@ class FlutterReactionButton extends StatefulWidget {
   State<FlutterReactionButton> createState() => _FlutterReactionButtonState();
 }
 
-class _FlutterReactionButtonState extends State<FlutterReactionButton> with FlutterReactionMixin {
+class _FlutterReactionButtonState extends State<FlutterReactionButton>
+    with FlutterReactionMixin, SingleTickerProviderStateMixin {
   @override
   FlutterReactionType? get flutterReactionType => widget.value;
 
@@ -54,6 +55,26 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
   @override
   FlutterReactionConfig? get config => widget.config ?? FlutterReactionOverlay.defaultConfig;
 
+  late final AnimationController _scaleController;
+
+  late final Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _scaleController = AnimationController(vsync: this, duration: const Duration(milliseconds: 350));
+    _scaleAnimation = TweenSequence<double>([
+      TweenSequenceItem(
+        tween: Tween(begin: 1.0, end: 1.4).chain(CurveTween(curve: Curves.easeOut)),
+        weight: 50,
+      ),
+      TweenSequenceItem(
+        tween: Tween(begin: 1.4, end: 1.0).chain(CurveTween(curve: Curves.easeIn)),
+        weight: 50,
+      ),
+    ]).animate(_scaleController);
+  }
+
   @override
   void showReactionOverlay() {
     context.showReactionOverlay(
@@ -62,6 +83,20 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
       value: flutterReactionType,
       onChanged: onChanged,
     );
+  }
+
+  @override
+  void didUpdateWidget(covariant FlutterReactionButton oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.value != oldWidget.value && widget.value != null) {
+      _scaleController.forward(from: 0);
+    }
+  }
+
+  @override
+  void dispose() {
+    _scaleController.dispose();
+    super.dispose();
   }
 
   @override
@@ -105,9 +140,12 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> with Flut
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          flutterReactionType != null
-              ? flutterReactionType!.buildDisplay(mode: widget.mode, size: widget.size)
-              : (widget.child ?? Icon(Icons.thumb_up_alt_rounded, color: Colors.grey, size: widget.size)),
+          ScaleTransition(
+            scale: _scaleAnimation,
+            child: flutterReactionType != null
+                ? flutterReactionType!.buildDisplay(mode: widget.mode, size: widget.size)
+                : (widget.child ?? Icon(Icons.thumb_up_alt_rounded, color: Colors.grey, size: widget.size)),
+          ),
           if (flutterReactionType != null && widget.hasLabel)
             Padding(
               padding: const EdgeInsets.only(left: AppConstants.spacing),
