@@ -1,3 +1,6 @@
+## 1.6.0
+- Scale "pop" animation on `FlutterReactionButton` when a reaction is selected, for better visual feedback.
+
 ## 1.5.0
 - Added configurable `animationDirection` for reaction animations.
 
