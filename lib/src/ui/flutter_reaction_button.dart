@@ -58,6 +58,7 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton>
   late final AnimationController _scaleController;
 
   late final Animation<double> _scaleAnimation;
+  late final Animation<double> _rotationAnimation;
 
   @override
   void initState() {
@@ -65,12 +66,25 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton>
     _scaleController = AnimationController(vsync: this, duration: const Duration(milliseconds: 350));
     _scaleAnimation = TweenSequence<double>([
       TweenSequenceItem(
-        tween: Tween(begin: 1.0, end: 1.4).chain(CurveTween(curve: Curves.easeOut)),
-        weight: 50,
+        tween: Tween(begin: 1.0, end: 1.3).chain(CurveTween(curve: Curves.easeOut)),
+        weight: 40,
       ),
+      TweenSequenceItem(tween: ConstantTween(1.3), weight: 20),
       TweenSequenceItem(
-        tween: Tween(begin: 1.4, end: 1.0).chain(CurveTween(curve: Curves.easeIn)),
-        weight: 50,
+        tween: Tween(begin: 1.3, end: 1.0).chain(CurveTween(curve: Curves.easeIn)),
+        weight: 40,
+      ),
+    ]).animate(_scaleController);
+
+    _rotationAnimation = TweenSequence<double>([
+      TweenSequenceItem(
+        tween: Tween(begin: 0.0, end: 25 / 360).chain(CurveTween(curve: Curves.easeOut)),
+        weight: 40,
+      ),
+      TweenSequenceItem(tween: ConstantTween(25 / 360), weight: 20),
+      TweenSequenceItem(
+        tween: Tween(begin: 25 / 360, end: 0.0).chain(CurveTween(curve: Curves.easeIn)),
+        weight: 40,
       ),
     ]).animate(_scaleController);
   }
@@ -140,11 +154,14 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton>
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          ScaleTransition(
-            scale: _scaleAnimation,
-            child: flutterReactionType != null
-                ? flutterReactionType!.buildDisplay(mode: widget.mode, size: widget.size)
-                : (widget.child ?? Icon(Icons.thumb_up_alt_rounded, color: Colors.grey, size: widget.size)),
+          RotationTransition(
+            turns: _rotationAnimation,
+            child: ScaleTransition(
+              scale: _scaleAnimation,
+              child: flutterReactionType != null
+                  ? flutterReactionType!.buildDisplay(mode: widget.mode, size: widget.size)
+                  : (widget.child ?? Icon(Icons.thumb_up_alt_rounded, color: Colors.grey, size: widget.size)),
+            ),
           ),
           if (flutterReactionType != null && widget.hasLabel)
             Padding(

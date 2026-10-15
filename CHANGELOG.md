@@ -1,3 +1,7 @@
+## 1.6.1
+- Add rotation animation to `FlutterReactionButton` on reaction select, paired with the pop scale animation.
+- Optimize `MediaQuery` lookups (`MediaQuery.sizeOf`, `MediaQuery.paddingOf`) to prevent unnecessary widget rebuilds.
+
 ## 1.6.0
 - Scale "pop" animation on `FlutterReactionButton` when a reaction is selected, for better visual feedback.
 
