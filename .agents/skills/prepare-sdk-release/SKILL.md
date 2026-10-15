@@ -1,6 +1,6 @@
 ---
 name: prepare-sdk-release
-description: Use this skill when preparing a new release for flutter_reactions SDK, including determining the next semantic version from git history, updating pubspec.yaml, CHANGELOG.md, README.md, scripts/create_tag.sh, running make clean, make format, and pushing to the dev branch.
+description: Use this skill when preparing a new release for flutter_reactions SDK, including determining the next semantic version from git history, updating pubspec.yaml, CHANGELOG.md, README.md, scripts/create_tag.sh, running make clean, make format, make authors, and pushing to the dev branch.
 ---
 
 # Prepare SDK Release Workflow
@@ -78,6 +78,12 @@ Execute the Makefile targets to clean artifacts, regenerate dependencies, and fo
    flutter test
    flutter analyze
    ```
+
+4. **Dry-Run Publication Validation**:
+   ```bash
+   make authors
+   ```
+   *Note: `scripts/authors.sh` runs `flutter pub publish --dry-run`. This acts as the final pre-release sanity check to ensure `pub.dev` accepts package metadata, license, CHANGELOG formatting, and dependency constraints before committing.*
 
 ---
 
